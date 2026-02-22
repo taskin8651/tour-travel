@@ -1,5 +1,7 @@
 <?php
 
+
+
 Route::redirect('/', '/login');
 Route::get('/home', function () {
     if (session('status')) {
@@ -28,13 +30,19 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Audit Logs
     Route::resource('audit-logs', 'AuditLogsController', ['except' => ['create', 'store', 'edit', 'update', 'destroy']]);
 
-    // Epaper
-    Route::delete('epapers/destroy', 'EpaperController@massDestroy')->name('epapers.massDestroy');
-    Route::post('epapers/media', 'EpaperController@storeMedia')->name('epapers.storeMedia');
-    Route::post('epapers/ckmedia', 'EpaperController@storeCKEditorImages')->name('epapers.storeCKEditorImages');
-    Route::post('epapers/parse-csv-import', 'EpaperController@parseCsvImport')->name('epapers.parseCsvImport');
-    Route::post('epapers/process-csv-import', 'EpaperController@processCsvImport')->name('epapers.processCsvImport');
-    Route::resource('epapers', 'EpaperController');
+    Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class);
+    Route::resource('sub-categories', \App\Http\Controllers\Admin\SubCategoryController::class);
+    Route::resource('listings', \App\Http\Controllers\Admin\ListingController::class);
+    Route::resource('enquiries', App\Http\Controllers\Admin\EnquiryController::class);
+    Route::resource('hero-sections',App\Http\Controllers\Admin\HeroSectionController::class);
+    Route::resource('galleries',App\Http\Controllers\Admin\GalleryController::class);
+    Route::resource('testimonials',App\Http\Controllers\Admin\TestimonialController::class);
+    Route::get('settings', [App\Http\Controllers\Admin\SettingController::class,'index'])->name('settings.index');
+
+Route::post('settings', [App\Http\Controllers\Admin\SettingController::class,'update'])->name('settings.update');
+
+Route::resource('blog-categories', App\Http\Controllers\Admin\BlogCategoryController::class);
+Route::resource('blogs', App\Http\Controllers\Admin\BlogController::class);
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
     // Change password
@@ -46,15 +54,3 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 
     }
 });
 
-
-Route::get('/epaper', [App\Http\Controllers\Custom\EpaperController::class, 'index'])->name('epaper.index');
-Route::get('/epaper/{epaper}', [App\Http\Controllers\Custom\EpaperController::class, 'show'])->name('custom.epaper-detail');
-Route::get('/pdf-view/{media}', function ($media) {
-    $file = \Spatie\MediaLibrary\MediaCollections\Models\Media::findOrFail($media);
-    $path = storage_path("app/public/{$file->id}/{$file->file_name}");
-
-    return response()->file($path, [
-        'Content-Type' => 'application/pdf',
-        'Cross-Origin-Resource-Policy' => 'cross-origin',
-    ]);
-})->name('pdf.view');

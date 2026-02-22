@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-       Schema::create('categories', function (Blueprint $table) {
+      Schema::create('sub_categories', function (Blueprint $table) {
     $table->id();
-    $table->string('name');              // Hotel
-    $table->string('slug')->unique();    // hotel
-    $table->string('icon')->nullable();  // optional
+    $table->foreignId('category_id')->constrained()->onDelete('cascade');
+    $table->string('name');          // SUV
+    $table->string('slug');
     $table->boolean('status')->default(1);
     $table->timestamps();
 });
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('sub_categories');
     }
 };

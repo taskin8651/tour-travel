@@ -3,13 +3,12 @@
            transition-all duration-300 ease-in-out">
 
     {{-- BRAND --}}
-    <div class="px-6 py-4 text-xl font-semibold border-b border-slate-700
-                tracking-wide">
-        {{ trans('panel.site_title') }}
+    <div class="px-6 py-4 text-xl font-semibold border-b border-slate-700 tracking-wide">
+        Travel Admin
     </div>
 
     {{-- NAV --}}
-    <nav class="flex-1 px-3 py-4 space-y-1 text-sm">
+    <nav class="flex-1 px-3 py-4 space-y-1 text-sm overflow-y-auto">
 
         {{-- DASHBOARD --}}
         <a href="{{ route('admin.home') }}"
@@ -17,98 +16,202 @@
            {{ request()->routeIs('admin.home')
                 ? 'bg-slate-800 text-white'
                 : 'hover:bg-slate-800 hover:pl-4' }}">
-            <i class="fas fa-tachometer-alt text-slate-400 group-hover:text-white transition"></i>
-            {{ trans('global.dashboard') }}
+            <i class="fas fa-tachometer-alt text-slate-400 group-hover:text-white"></i>
+            Dashboard
         </a>
 
-        {{-- USER MANAGEMENT --}}
-        @can('user_management_access')
-            <div x-data="{ open:
-                {{ request()->is('admin/permissions*')
-                || request()->is('admin/roles*')
-                || request()->is('admin/users*')
-                || request()->is('admin/audit-logs*') ? 'true' : 'false' }}
-            }">
+        {{-- ================= TRAVEL MANAGEMENT ================= --}}
+        <div x-data="{ open:
+            {{ request()->is('admin/categories*')
+            || request()->is('admin/sub-categories*')
+            || request()->is('admin/listings*') ? 'true' : 'false' }}
+        }">
 
-                <button @click="open = !open"
-                        class="group w-full flex items-center justify-between px-3 py-2 rounded
-                               hover:bg-slate-800 transition">
-                    <span class="flex items-center gap-3">
-                        <i class="fas fa-users text-slate-400 group-hover:text-white transition"></i>
-                        {{ trans('cruds.userManagement.title') }}
-                    </span>
+            <button @click="open = !open"
+                class="group w-full flex items-center justify-between px-3 py-2 rounded
+                       hover:bg-slate-800 transition">
 
-                    <i class="fas fa-chevron-down text-xs transition-transform duration-300"
-                       :class="open ? 'rotate-180' : ''"></i>
-                </button>
+                <span class="flex items-center gap-3">
+                    <i class="fas fa-plane text-slate-400 group-hover:text-white"></i>
+                    Travel Management
+                </span>
 
-                {{-- DROPDOWN --}}
-                <div x-show="open"
-                     x-transition:enter="transition ease-out duration-200"
-                     x-transition:enter-start="opacity-0 -translate-y-2"
-                     x-transition:enter-end="opacity-100 translate-y-0"
-                     x-transition:leave="transition ease-in duration-150"
-                     x-transition:leave-start="opacity-100 translate-y-0"
-                     x-transition:leave-end="opacity-0 -translate-y-2"
-                     class="ml-6 mt-1 space-y-1">
+                <i class="fas fa-chevron-down text-xs transition-transform duration-300"
+                   :class="open ? 'rotate-180' : ''"></i>
+            </button>
 
-                    @can('permission_access')
-                        <a href="{{ route('admin.permissions.index') }}"
-                           class="block px-3 py-2 rounded transition
-                           {{ request()->is('admin/permissions*')
-                                ? 'bg-slate-800 text-white'
-                                : 'hover:bg-slate-800 hover:pl-4' }}">
-                            {{ trans('cruds.permission.title') }}
-                        </a>
-                    @endcan
+            <div x-show="open" x-transition class="ml-6 mt-1 space-y-1">
 
-                    @can('role_access')
-                        <a href="{{ route('admin.roles.index') }}"
-                           class="block px-3 py-2 rounded transition
-                           {{ request()->is('admin/roles*')
-                                ? 'bg-slate-800 text-white'
-                                : 'hover:bg-slate-800 hover:pl-4' }}">
-                            {{ trans('cruds.role.title') }}
-                        </a>
-                    @endcan
-
-                    @can('user_access')
-                        <a href="{{ route('admin.users.index') }}"
-                           class="block px-3 py-2 rounded transition
-                           {{ request()->is('admin/users*')
-                                ? 'bg-slate-800 text-white'
-                                : 'hover:bg-slate-800 hover:pl-4' }}">
-                            {{ trans('cruds.user.title') }}
-                        </a>
-                    @endcan
-
-                    @can('audit_log_access')
-                        <a href="{{ route('admin.audit-logs.index') }}"
-                           class="block px-3 py-2 rounded transition
-                           {{ request()->is('admin/audit-logs*')
-                                ? 'bg-slate-800 text-white'
-                                : 'hover:bg-slate-800 hover:pl-4' }}">
-                            {{ trans('cruds.auditLog.title') }}
-                        </a>
-                    @endcan
-
-                </div>
-            </div>
-        @endcan
-
-        {{-- CHANGE PASSWORD --}}
-        @if(file_exists(app_path('Http/Controllers/Auth/ChangePasswordController.php')))
-            @can('profile_password_edit')
-                <a href="{{ route('profile.password.edit') }}"
-                   class="group flex items-center gap-3 px-3 py-2 rounded transition
-                   {{ request()->is('profile/password*')
+                <a href="{{ route('admin.categories.index') }}"
+                   class="block px-3 py-2 rounded transition
+                   {{ request()->is('admin/categories*')
                         ? 'bg-slate-800 text-white'
                         : 'hover:bg-slate-800 hover:pl-4' }}">
-                    <i class="fas fa-key text-slate-400 group-hover:text-white transition"></i>
-                    {{ trans('global.change_password') }}
+                    Categories
                 </a>
-            @endcan
-        @endif
+
+                <a href="{{ route('admin.sub-categories.index') }}"
+                   class="block px-3 py-2 rounded transition
+                   {{ request()->is('admin/sub-categories*')
+                        ? 'bg-slate-800 text-white'
+                        : 'hover:bg-slate-800 hover:pl-4' }}">
+                    Sub Categories
+                </a>
+
+                <a href="{{ route('admin.listings.index') }}"
+                   class="block px-3 py-2 rounded transition
+                   {{ request()->is('admin/listings*')
+                        ? 'bg-slate-800 text-white'
+                        : 'hover:bg-slate-800 hover:pl-4' }}">
+                    Listings
+                </a>
+
+            </div>
+        </div>
+
+        {{-- ================= ENQUIRIES ================= --}}
+        <a href="{{ route('admin.enquiries.index') }}"
+           class="group flex items-center gap-3 px-3 py-2 rounded transition
+           {{ request()->is('admin/enquiries*')
+                ? 'bg-slate-800 text-white'
+                : 'hover:bg-slate-800 hover:pl-4' }}">
+            <i class="fas fa-envelope text-slate-400 group-hover:text-white"></i>
+            Enquiries
+        </a>
+
+        {{-- ================= CONTENT MANAGEMENT ================= --}}
+        <div x-data="{ open:
+            {{ request()->is('admin/hero-sections*')
+            || request()->is('admin/galleries*')
+            || request()->is('admin/testimonials*')
+            || request()->is('admin/blogs*')
+            || request()->is('admin/blog-categories*') ? 'true' : 'false' }}
+        }">
+
+            <button @click="open = !open"
+                class="group w-full flex items-center justify-between px-3 py-2 rounded
+                       hover:bg-slate-800 transition">
+
+                <span class="flex items-center gap-3">
+                    <i class="fas fa-layer-group text-slate-400 group-hover:text-white"></i>
+                    Content Management
+                </span>
+
+                <i class="fas fa-chevron-down text-xs transition-transform duration-300"
+                   :class="open ? 'rotate-180' : ''"></i>
+            </button>
+
+            <div x-show="open" x-transition class="ml-6 mt-1 space-y-1">
+
+                <a href="{{ route('admin.hero-sections.index') }}"
+                   class="block px-3 py-2 rounded transition
+                   {{ request()->is('admin/hero-sections*')
+                        ? 'bg-slate-800 text-white'
+                        : 'hover:bg-slate-800 hover:pl-4' }}">
+                    Hero Section
+                </a>
+
+                <a href="{{ route('admin.galleries.index') }}"
+                   class="block px-3 py-2 rounded transition
+                   {{ request()->is('admin/galleries*')
+                        ? 'bg-slate-800 text-white'
+                        : 'hover:bg-slate-800 hover:pl-4' }}">
+                    Gallery
+                </a>
+
+                <a href="{{ route('admin.testimonials.index') }}"
+                   class="block px-3 py-2 rounded transition
+                   {{ request()->is('admin/testimonials*')
+                        ? 'bg-slate-800 text-white'
+                        : 'hover:bg-slate-800 hover:pl-4' }}">
+                    Testimonials
+                </a>
+
+                <a href="{{ route('admin.blog-categories.index') }}"
+                   class="block px-3 py-2 rounded transition
+                   {{ request()->is('admin/blog-categories*')
+                        ? 'bg-slate-800 text-white'
+                        : 'hover:bg-slate-800 hover:pl-4' }}">
+                    Blog Categories
+                </a>
+
+                <a href="{{ route('admin.blogs.index') }}"
+                   class="block px-3 py-2 rounded transition
+                   {{ request()->is('admin/blogs*')
+                        ? 'bg-slate-800 text-white'
+                        : 'hover:bg-slate-800 hover:pl-4' }}">
+                    Blogs
+                </a>
+
+            </div>
+        </div>
+
+        {{-- ================= WEBSITE SETTINGS ================= --}}
+        <a href="{{ route('admin.settings.index') }}"
+           class="group flex items-center gap-3 px-3 py-2 rounded transition
+           {{ request()->is('admin/settings*')
+                ? 'bg-slate-800 text-white'
+                : 'hover:bg-slate-800 hover:pl-4' }}">
+            <i class="fas fa-cog text-slate-400 group-hover:text-white"></i>
+            Website Settings
+        </a>
+
+        {{-- ================= USER MANAGEMENT ================= --}}
+        @can('user_management_access')
+        <div x-data="{ open:
+            {{ request()->is('admin/permissions*')
+            || request()->is('admin/roles*')
+            || request()->is('admin/users*') ? 'true' : 'false' }}
+        }">
+
+            <button @click="open = !open"
+                class="group w-full flex items-center justify-between px-3 py-2 rounded
+                       hover:bg-slate-800 transition">
+
+                <span class="flex items-center gap-3">
+                    <i class="fas fa-users text-slate-400 group-hover:text-white"></i>
+                    User Management
+                </span>
+
+                <i class="fas fa-chevron-down text-xs transition-transform duration-300"
+                   :class="open ? 'rotate-180' : ''"></i>
+            </button>
+
+            <div x-show="open" x-transition class="ml-6 mt-1 space-y-1">
+
+                @can('permission_access')
+                <a href="{{ route('admin.permissions.index') }}"
+                   class="block px-3 py-2 rounded transition
+                   {{ request()->is('admin/permissions*')
+                        ? 'bg-slate-800 text-white'
+                        : 'hover:bg-slate-800 hover:pl-4' }}">
+                    Permissions
+                </a>
+                @endcan
+
+                @can('role_access')
+                <a href="{{ route('admin.roles.index') }}"
+                   class="block px-3 py-2 rounded transition
+                   {{ request()->is('admin/roles*')
+                        ? 'bg-slate-800 text-white'
+                        : 'hover:bg-slate-800 hover:pl-4' }}">
+                    Roles
+                </a>
+                @endcan
+
+                @can('user_access')
+                <a href="{{ route('admin.users.index') }}"
+                   class="block px-3 py-2 rounded transition
+                   {{ request()->is('admin/users*')
+                        ? 'bg-slate-800 text-white'
+                        : 'hover:bg-slate-800 hover:pl-4' }}">
+                    Users
+                </a>
+                @endcan
+
+            </div>
+        </div>
+        @endcan
 
     </nav>
 
@@ -118,8 +221,8 @@
            onclick="event.preventDefault(); document.getElementById('logoutform').submit();"
            class="group flex items-center gap-3 px-3 py-2 rounded transition
                   hover:bg-red-600 hover:text-white">
-            <i class="fas fa-sign-out-alt transition group-hover:translate-x-1"></i>
-            {{ trans('global.logout') }}
+            <i class="fas fa-sign-out-alt group-hover:translate-x-1 transition"></i>
+            Logout
         </a>
     </div>
 
