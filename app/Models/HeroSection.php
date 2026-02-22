@@ -19,8 +19,8 @@ class HeroSection extends Model implements HasMedia
     ];
 
     public function registerMediaCollections(): void
-    {
-        $this->addMediaCollection('hero')
-             ->singleFile(); // ek hi image rahegi
-    }
+{
+    $this->addMediaCollection('hero_media')
+         ->singleFile(); // video ya image ek hi file
+}
 }

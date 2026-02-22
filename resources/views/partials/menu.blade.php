@@ -79,72 +79,87 @@
             Enquiries
         </a>
 
-        {{-- ================= CONTENT MANAGEMENT ================= --}}
-        <div x-data="{ open:
-            {{ request()->is('admin/hero-sections*')
-            || request()->is('admin/galleries*')
-            || request()->is('admin/testimonials*')
-            || request()->is('admin/blogs*')
-            || request()->is('admin/blog-categories*') ? 'true' : 'false' }}
-        }">
+       {{-- ================= CONTENT MANAGEMENT ================= --}}
+<div x-data="{ open:
+    {{ request()->is('admin/hero-sections*')
+    || request()->is('admin/galleries*')
+    || request()->is('admin/testimonials*')
+    || request()->is('admin/blogs*')
+    || request()->is('admin/blog-categories*')
+    || request()->is('admin/brands*') ? 'true' : 'false' }}
+}">
 
-            <button @click="open = !open"
-                class="group w-full flex items-center justify-between px-3 py-2 rounded
-                       hover:bg-slate-800 transition">
+    <button @click="open = !open"
+        class="group w-full flex items-center justify-between px-3 py-2 rounded
+               hover:bg-slate-800 transition">
 
-                <span class="flex items-center gap-3">
-                    <i class="fas fa-layer-group text-slate-400 group-hover:text-white"></i>
-                    Content Management
-                </span>
+        <span class="flex items-center gap-3">
+            <i class="fas fa-layer-group text-slate-400 group-hover:text-white"></i>
+            Content Management
+        </span>
 
-                <i class="fas fa-chevron-down text-xs transition-transform duration-300"
-                   :class="open ? 'rotate-180' : ''"></i>
-            </button>
+        <i class="fas fa-chevron-down text-xs transition-transform duration-300"
+           :class="open ? 'rotate-180' : ''"></i>
+    </button>
 
-            <div x-show="open" x-transition class="ml-6 mt-1 space-y-1">
+    <div x-show="open" x-transition class="ml-6 mt-1 space-y-1">
 
-                <a href="{{ route('admin.hero-sections.index') }}"
-                   class="block px-3 py-2 rounded transition
-                   {{ request()->is('admin/hero-sections*')
-                        ? 'bg-slate-800 text-white'
-                        : 'hover:bg-slate-800 hover:pl-4' }}">
-                    Hero Section
-                </a>
+        {{-- Hero --}}
+        <a href="{{ route('admin.hero-sections.index') }}"
+           class="block px-3 py-2 rounded transition
+           {{ request()->is('admin/hero-sections*')
+                ? 'bg-slate-800 text-white'
+                : 'hover:bg-slate-800 hover:pl-4' }}">
+            Hero Section
+        </a>
 
-                <a href="{{ route('admin.galleries.index') }}"
-                   class="block px-3 py-2 rounded transition
-                   {{ request()->is('admin/galleries*')
-                        ? 'bg-slate-800 text-white'
-                        : 'hover:bg-slate-800 hover:pl-4' }}">
-                    Gallery
-                </a>
+        {{-- Gallery --}}
+        <a href="{{ route('admin.galleries.index') }}"
+           class="block px-3 py-2 rounded transition
+           {{ request()->is('admin/galleries*')
+                ? 'bg-slate-800 text-white'
+                : 'hover:bg-slate-800 hover:pl-4' }}">
+            Gallery
+        </a>
 
-                <a href="{{ route('admin.testimonials.index') }}"
-                   class="block px-3 py-2 rounded transition
-                   {{ request()->is('admin/testimonials*')
-                        ? 'bg-slate-800 text-white'
-                        : 'hover:bg-slate-800 hover:pl-4' }}">
-                    Testimonials
-                </a>
+        {{-- Testimonials --}}
+        <a href="{{ route('admin.testimonials.index') }}"
+           class="block px-3 py-2 rounded transition
+           {{ request()->is('admin/testimonials*')
+                ? 'bg-slate-800 text-white'
+                : 'hover:bg-slate-800 hover:pl-4' }}">
+            Testimonials
+        </a>
 
-                <a href="{{ route('admin.blog-categories.index') }}"
-                   class="block px-3 py-2 rounded transition
-                   {{ request()->is('admin/blog-categories*')
-                        ? 'bg-slate-800 text-white'
-                        : 'hover:bg-slate-800 hover:pl-4' }}">
-                    Blog Categories
-                </a>
+        {{-- Blog Categories --}}
+        <a href="{{ route('admin.blog-categories.index') }}"
+           class="block px-3 py-2 rounded transition
+           {{ request()->is('admin/blog-categories*')
+                ? 'bg-slate-800 text-white'
+                : 'hover:bg-slate-800 hover:pl-4' }}">
+            Blog Categories
+        </a>
 
-                <a href="{{ route('admin.blogs.index') }}"
-                   class="block px-3 py-2 rounded transition
-                   {{ request()->is('admin/blogs*')
-                        ? 'bg-slate-800 text-white'
-                        : 'hover:bg-slate-800 hover:pl-4' }}">
-                    Blogs
-                </a>
+        {{-- Blogs --}}
+        <a href="{{ route('admin.blogs.index') }}"
+           class="block px-3 py-2 rounded transition
+           {{ request()->is('admin/blogs*')
+                ? 'bg-slate-800 text-white'
+                : 'hover:bg-slate-800 hover:pl-4' }}">
+            Blogs
+        </a>
 
-            </div>
-        </div>
+        {{-- Brands (NEW) --}}
+        <a href="{{ route('admin.brands.index') }}"
+           class="block px-3 py-2 rounded transition
+           {{ request()->is('admin/brands*')
+                ? 'bg-slate-800 text-white'
+                : 'hover:bg-slate-800 hover:pl-4' }}">
+            Brands
+        </a>
+
+    </div>
+</div>
 
         {{-- ================= WEBSITE SETTINGS ================= --}}
         <a href="{{ route('admin.settings.index') }}"

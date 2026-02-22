@@ -27,20 +27,25 @@ class HeroSectionController extends Controller
             'button_text' => 'nullable|string|max:100',
             'button_link' => 'nullable|string|max:255',
             'status'      => 'required|boolean',
-            'image'       => 'required|image|mimes:jpg,jpeg,png,webp|max:2048'
+            'media'       => 'required|file|mimes:jpg,jpeg,png,webp,mp4|max:51200' // 50MB max
         ]);
 
-        $hero = HeroSection::create([
-            'title'       => $request->title,
-            'subtitle'    => $request->subtitle,
-            'button_text' => $request->button_text,
-            'button_link' => $request->button_link,
-            'status'      => $request->status,
-        ]);
+        // Optional: Only One Active Hero
+        if ($request->status == 1) {
+            HeroSection::where('status', 1)->update(['status' => 0]);
+        }
 
-        if ($request->hasFile('image')) {
-            $hero->addMediaFromRequest('image')
-                 ->toMediaCollection('hero');
+        $hero = HeroSection::create($request->only([
+            'title',
+            'subtitle',
+            'button_text',
+            'button_link',
+            'status'
+        ]));
+
+        if ($request->hasFile('media')) {
+            $hero->addMediaFromRequest('media')
+                 ->toMediaCollection('hero_media');
         }
 
         return redirect()
@@ -61,21 +66,27 @@ class HeroSectionController extends Controller
             'button_text' => 'nullable|string|max:100',
             'button_link' => 'nullable|string|max:255',
             'status'      => 'required|boolean',
-            'image'       => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048'
+            'media'       => 'nullable|file|mimes:jpg,jpeg,png,webp,mp4|max:51200' // 50MB max
         ]);
 
-        $hero_section->update([
-            'title'       => $request->title,
-            'subtitle'    => $request->subtitle,
-            'button_text' => $request->button_text,
-            'button_link' => $request->button_link,
-            'status'      => $request->status,
-        ]);
+        if ($request->status == 1) {
+            HeroSection::where('status', 1)
+                ->where('id', '!=', $hero_section->id)
+                ->update(['status' => 0]);
+        }
 
-        if ($request->hasFile('image')) {
-            $hero_section->clearMediaCollection('hero');
-            $hero_section->addMediaFromRequest('image')
-                         ->toMediaCollection('hero');
+        $hero_section->update($request->only([
+            'title',
+            'subtitle',
+            'button_text',
+            'button_link',
+            'status'
+        ]));
+
+        if ($request->hasFile('media')) {
+            $hero_section->clearMediaCollection('hero_media');
+            $hero_section->addMediaFromRequest('media')
+                         ->toMediaCollection('hero_media');
         }
 
         return redirect()
@@ -85,7 +96,7 @@ class HeroSectionController extends Controller
 
     public function destroy(HeroSection $hero_section)
     {
-        $hero_section->clearMediaCollection('hero');
+        $hero_section->clearMediaCollection('hero_media');
         $hero_section->delete();
 
         return back()->with('success', 'Hero Section Deleted Successfully');

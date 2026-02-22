@@ -43,6 +43,7 @@ Route::post('settings', [App\Http\Controllers\Admin\SettingController::class,'up
 
 Route::resource('blog-categories', App\Http\Controllers\Admin\BlogCategoryController::class);
 Route::resource('blogs', App\Http\Controllers\Admin\BlogController::class);
+ Route::resource('brands', App\Http\Controllers\Admin\BrandController::class);
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
     // Change password
@@ -54,3 +55,4 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 
     }
 });
 
+Route::get('/', [App\Http\Controllers\Frontend\HomeController::class, 'index'])->name('home');
