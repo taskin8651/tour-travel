@@ -56,3 +56,13 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 
 });
 
 Route::get('/', [App\Http\Controllers\Frontend\HomeController::class, 'index'])->name('home');
+Route::get('/get-listings/{category}', function($categoryId){
+    return \App\Models\Listing::where('category_id',$categoryId)
+        ->where('status',1)
+        ->select('id','title')
+        ->get();
+});
+
+Route::post('/enquiry-store',
+    [\App\Http\Controllers\Frontend\EnquiryController::class,'store']
+)->name('frontend.enquiry.store');

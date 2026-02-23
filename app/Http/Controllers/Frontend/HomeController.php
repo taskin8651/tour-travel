@@ -8,43 +8,18 @@ use App\Models\Listing;
 use App\Models\Brand;
 use App\Models\Testimonial;
 use App\Models\Blog;
+use App\Models\Category;
 
 class HomeController extends Controller
 {
-    public function index()
-    {
-        // Active Hero
-        $hero = HeroSection::where('status', 1)->first();
+   public function index()
+{
+    $hero = HeroSection::where('status', 1)->first();
+    $categories = Category::where('status',1)->get();
 
-        // Featured Listings (example: latest 6)
-        $listings = Listing::where('status',1)
-                        ->latest()
-                        ->take(6)
-                        ->get();
-
-        // Active Brands
-        $brands = Brand::where('status',1)
-                        ->orderBy('sort_order')
-                        ->get();
-
-        // Testimonials
-        $testimonials = Testimonial::where('status',1)
-                            ->latest()
-                            ->take(5)
-                            ->get();
-
-        // Latest Blogs
-        $blogs = Blog::where('status',1)
-                    ->latest()
-                    ->take(3)
-                    ->get();
-
-        return view('custom.index', compact(
-            'hero',
-            'listings',
-            'brands',
-            'testimonials',
-            'blogs'
-        ));
-    }
+    return view('custom.index', compact(
+        'hero',
+        'categories'
+    ));
+}
 }
