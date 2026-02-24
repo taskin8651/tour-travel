@@ -50,6 +50,8 @@ class HomeController extends Controller
         ->orderBy('sort_order')
         ->get();
 
+        $setting = \App\Models\Setting::first();
+
 
     return view('custom.index', compact(
         'hero',
@@ -58,7 +60,9 @@ class HomeController extends Controller
         'packageCategory',
         'travelListings',
         'roomListings',
-        'brands'
+        'brands',
+        'setting'
+
 
 
     ));

@@ -116,7 +116,7 @@
             </ul>
 
             <div class="btn-and-price-area">
-                <a href="{{ route('listing.detail', $listing->id) }}" class="primary-btn1">
+                <a href="{{ route('enquiry.create', $listing->category->slug) }}" class="primary-btn1">
                     <span>Book Now</span>
                     <span>Book Now</span>
                 </a>

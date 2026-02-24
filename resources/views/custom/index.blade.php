@@ -610,10 +610,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 <span>Make Meet Happiness.</span>
                 <h2>Travel isn’t a luxury, it’s a way of life!</h2>
                 <div class="author-area">
-                    <h5>Mr. Gabriel Haringson</h5>
-                    <span>CEO, GoFly</span>
+                    <span>CEO, {{ $setting->site_name }}</span>
                 </div>
-                <a href="travel-package-01.html" class="primary-btn1 two">
+                <a href="{{ route('contact.page') }}" class="primary-btn1 two">
                     <span>
                         Grab the Deal Now
                         <svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">

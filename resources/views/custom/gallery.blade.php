@@ -7,10 +7,10 @@
     <div class="breadcrumb-section" style="background-image:linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(assets/img/innerpages/breadcrumb-bg1.jpg);">  
         <div class="container">
             <div class="banner-content">
-                <h1>Destinations 03</h1>
+                <h1>Gallery</h1>
                 <ul class="breadcrumb-list">
-                    <li><a href="index.html">Home</a></li>
-                    <li>Destinations 03</li>
+                    <li><a href="{{ route('home') }}">Home</a></li>
+                    <li>Gallery</li>
                 </ul>
             </div>
         </div>
