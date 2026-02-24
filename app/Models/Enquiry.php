@@ -34,7 +34,6 @@ class Enquiry extends Model
         'travel_date'   => 'date',
         'checkin_date'  => 'date',
         'checkout_date' => 'date',
-        'status'        => 'boolean',
     ];
 
     // ================= Relations =================

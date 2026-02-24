@@ -23,13 +23,21 @@ class EnquiryController extends Controller
     }
 
     public function update(Request $request, Enquiry $enquiry)
-    {
-        $enquiry->update([
-            'status' => $request->status
-        ]);
+{
+    // dd($request->all());
+    $request->validate([
+        'status' => 'required|in:pending,confirmed,cancelled'
+    ]);
 
-        return back()->with('success','Status Updated');
-    }
+    $enquiry->update([
+        'status' => $request->status
+    ]);
+    // dd($enquiry->status);
+
+    return redirect()
+            ->route('admin.enquiries.show', $enquiry->id)
+            ->with('success','Status Updated Successfully');
+}
 
     public function destroy(Enquiry $enquiry)
     {
