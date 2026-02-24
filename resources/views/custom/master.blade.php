@@ -35,8 +35,8 @@
     <!--  Style CSS  -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <!-- Title -->
-    <title>Gofly - Tour & Travel Booking Website.</title>
-    <link rel="icon" href="{{ asset('assets/img/fav-icon.svg') }}" type="image/gif" sizes="20x20">
+    <title>{{ $setting->site_name ?? 'Dream Destination Sikkim' }}</title>
+    <link rel="icon" href="{{ $setting->getFirstMediaUrl('favicon') ?: asset('assets/img/fav-icon.svg') }}" type="image/gif" sizes="20x20">
 </head>
 
 <body class="tt-magic-cursor">
