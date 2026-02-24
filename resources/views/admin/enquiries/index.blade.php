@@ -62,8 +62,13 @@
 <td class="p-3">{{ $enquiry->persons ?? '-' }}</td>
 
 {{-- Room --}}
-<td class="p-3">{{ $enquiry->checkin_date ?? '-' }}</td>
-<td class="p-3">{{ $enquiry->checkout_date ?? '-' }}</td>
+<td class="p-3">
+    {{ $enquiry->checkin_date ? $enquiry->checkin_date->format('d M Y') : '-' }}
+</td>
+
+<td class="p-3">
+    {{ $enquiry->checkout_date ? $enquiry->checkout_date->format('d M Y') : '-' }}
+</td>
 <td class="p-3">{{ $enquiry->rooms ?? '-' }}</td>
 
 {{-- Message --}}
