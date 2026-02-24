@@ -48,7 +48,7 @@
 </td>
 
 <td class="p-3">
-<a href="{{ route('enquiries.show',$enquiry->id) }}"
+<a href="{{ route('admin.enquiries.show',$enquiry->id) }}"
 class="text-indigo-600">View</a>
 </td>
 

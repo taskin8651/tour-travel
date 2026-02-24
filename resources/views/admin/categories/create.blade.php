@@ -8,7 +8,7 @@
             Create Category
         </h2>
 
-        <form action="{{ route('categories.store') }}" method="POST" class="space-y-5">
+        <form action="{{ route('admin.categories.store') }}" method="POST" class="space-y-5">
             @csrf
 
             <div>

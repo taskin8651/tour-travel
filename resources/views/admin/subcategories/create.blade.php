@@ -8,7 +8,7 @@
             Create Sub Category
         </h2>
 
-        <form action="{{ route('sub-categories.store') }}" 
+        <form action="{{ route('admin.sub-categories.store') }}" 
               method="POST" 
               class="space-y-5">
             @csrf

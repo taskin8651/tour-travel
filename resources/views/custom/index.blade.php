@@ -58,241 +58,622 @@
  
 {{-- ================= HERO SECTION END ================= --}}
     <div class="filter-wrapper mb-100">
-        <div class="container">
-            <ul class="filter-item-list">
-                <li class="single-item active">
-                    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <g>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M15.0698 22.0465V23.1628C15.0698 23.3848 15.158 23.5978 15.315 23.7548C15.472 23.9118 15.6849 24 15.907 24C16.129 24 16.342 23.9118 16.499 23.7548C16.656 23.5978 16.7442 23.3848 16.7442 23.1628V22.0465C16.7442 21.8245 16.656 21.6115 16.499 21.4545C16.342 21.2975 16.129 21.2093 15.907 21.2093C15.6849 21.2093 15.472 21.2975 15.315 21.4545C15.158 21.6115 15.0698 21.8245 15.0698 22.0465ZM13.3953 0.837209V6.4186C13.3953 6.64065 13.4835 6.85359 13.6405 7.0106C13.7976 7.16761 14.0105 7.25581 14.2325 7.25581C14.4546 7.25581 14.6675 7.16761 14.8245 7.0106C14.9815 6.85359 15.0698 6.64065 15.0698 6.4186V0.837209C15.0698 0.615168 14.9815 0.40222 14.8245 0.245213C14.6675 0.0882058 14.4546 0 14.2325 0C14.0105 0 13.7976 0.0882058 13.6405 0.245213C13.4835 0.40222 13.3953 0.615168 13.3953 0.837209ZM7.2558 22.0465V23.1628C7.2558 23.3848 7.344 23.5978 7.50101 23.7548C7.65802 23.9118 7.87097 24 8.09301 24C8.31505 24 8.528 23.9118 8.685 23.7548C8.84201 23.5978 8.93022 23.3848 8.93022 23.1628V22.0465C8.93022 21.8245 8.84201 21.6115 8.685 21.4545C8.528 21.2975 8.31505 21.2093 8.09301 21.2093C7.87097 21.2093 7.65802 21.2975 7.50101 21.4545C7.344 21.6115 7.2558 21.8245 7.2558 22.0465ZM8.93022 0.837209V6.4186C8.93022 6.64065 9.01842 6.85359 9.17543 7.0106C9.33244 7.16761 9.54538 7.25581 9.76743 7.25581C9.98947 7.25581 10.2024 7.16761 10.3594 7.0106C10.5164 6.85359 10.6046 6.64065 10.6046 6.4186V0.837209C10.6046 0.615168 10.5164 0.40222 10.3594 0.245213C10.2024 0.0882058 9.98947 0 9.76743 0C9.54538 0 9.33244 0.0882058 9.17543 0.245213C9.01842 0.40222 8.93022 0.615168 8.93022 0.837209Z"/>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M8.65113 1.67442H15.3488C15.5709 1.67442 15.7838 1.58621 15.9408 1.42921C16.0978 1.2722 16.186 1.05925 16.186 0.837209C16.186 0.615168 16.0978 0.40222 15.9408 0.245213C15.7838 0.0882057 15.5709 0 15.3488 0H8.65113C8.42909 0 8.21615 0.0882057 8.05914 0.245213C7.90213 0.40222 7.81392 0.615168 7.81392 0.837209C7.81392 1.05925 7.90213 1.2722 8.05914 1.42921C8.21615 1.58621 8.42909 1.67442 8.65113 1.67442ZM19.5349 8.65116C19.5349 7.83701 19.2114 7.0562 18.6357 6.48051C18.06 5.90482 17.2792 5.5814 16.4651 5.5814H7.53486C6.7207 5.5814 5.93989 5.90482 5.3642 6.48051C4.78851 7.0562 4.46509 7.83701 4.46509 8.65116V19.814C4.46509 20.6281 4.78851 21.4089 5.3642 21.9846C5.93989 22.5603 6.7207 22.8837 7.53486 22.8837H16.4651C17.2792 22.8837 18.06 22.5603 18.6357 21.9846C19.2114 21.4089 19.5349 20.6281 19.5349 19.814V8.65116ZM11.1628 9.76744V18.6977C11.1628 18.9197 11.251 19.1327 11.408 19.2897C11.565 19.4467 11.7779 19.5349 12 19.5349C12.222 19.5349 12.435 19.4467 12.592 19.2897C12.749 19.1327 12.8372 18.9197 12.8372 18.6977V9.76744C12.8372 9.5454 12.749 9.33245 12.592 9.17545C12.435 9.01844 12.222 8.93023 12 8.93023C11.7779 8.93023 11.565 9.01844 11.408 9.17545C11.251 9.33245 11.1628 9.5454 11.1628 9.76744ZM7.81392 9.76744V18.6977C7.81392 18.9197 7.90213 19.1327 8.05914 19.2897C8.21615 19.4467 8.42909 19.5349 8.65113 19.5349C8.87318 19.5349 9.08612 19.4467 9.24313 19.2897C9.40014 19.1327 9.48834 18.9197 9.48834 18.6977V9.76744C9.48834 9.5454 9.40014 9.33245 9.24313 9.17545C9.08612 9.01844 8.87318 8.93023 8.65113 8.93023C8.42909 8.93023 8.21615 9.01844 8.05914 9.17545C7.90213 9.33245 7.81392 9.5454 7.81392 9.76744ZM14.5116 9.76744V18.6977C14.5116 18.9197 14.5998 19.1327 14.7568 19.2897C14.9138 19.4467 15.1268 19.5349 15.3488 19.5349C15.5709 19.5349 15.7838 19.4467 15.9408 19.2897C16.0978 19.1327 16.186 18.9197 16.186 18.6977V9.76744C16.186 9.5454 16.0978 9.33245 15.9408 9.17545C15.7838 9.01844 15.5709 8.93023 15.3488 8.93023C15.1268 8.93023 14.9138 9.01844 14.7568 9.17545C14.5998 9.33245 14.5116 9.5454 14.5116 9.76744Z"/>
-                        </g>
-                    </svg>
-                    <span>Tours</span>
+    <div class="container">
+
+        {{-- CATEGORY TABS --}}
+        <ul class="filter-item-list">
+            @foreach($categories as $key => $category)
+                <li class="single-item {{ $key == 0 ? 'active' : '' }}"
+                    data-id="{{ $category->id }}"
+                    data-slug="{{ $category->slug }}">
+
+                    {{-- Travel Booking SVG --}}
+                    @if($category->slug == 'travel-booking')
+                        <svg width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M12 2L15 8H9L12 2Z"/>
+                            <path d="M4 10H20V22H4V10Z"/>
+                        </svg>
+
+                    {{-- Room Booking SVG --}}
+                    @elseif($category->slug == 'room-booking')
+                        <svg width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M3 11H21V21H3V11Z"/>
+                            <path d="M7 11V7H17V11"/>
+                        </svg>
+
+                    {{-- Sikkim Package SVG --}}
+                    @elseif($category->slug == 'tour-package')
+                        <svg width="24" height="24" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M8 12L11 15L16 9"/>
+                        </svg>
+                    @endif
+
+                    <span>{{ $category->name }}</span>
                 </li>
-                <li class="single-item hotel">
+            @endforeach
+        </ul>
+
+        <div class="filter-input-wrap">
+
+         <form method="POST" action="{{ route('frontend.enquiry.store') }}">
+    @csrf
+
+    {{-- Hidden Category --}}
+    <input type="hidden"
+           name="category_id"
+           id="selectedCategory"
+           value="{{ $categories->first()->id ?? '' }}">
+
+    <div class="row g-3 mb-60">
+
+        {{-- FULL NAME --}}
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="form-inner">
+                <label>Full Name</label>
+                <input type="text" name="name" placeholder="Your Name" required>
+            </div>
+        </div>
+
+        {{-- EMAIL --}}
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="form-inner">
+                <label>Email</label>
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+        </div>
+
+        {{-- PHONE --}}
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="form-inner">
+                <label>Phone</label>
+                <input type="text" name="phone" placeholder="Phone" required>
+            </div>
+        </div>
+
+        {{-- LISTING SELECT --}}
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="form-inner">
+                <label>Select Listing</label>
+                <select name="listing_id" id="listingSelect" required>
+                    <option value="">Select Listing</option>
+
+                    @foreach($listings as $listing)
+    <option value="{{ $listing->id }}"
+            data-category="{{ $listing->category_id }}">
+        {{ $listing->title }} (₹{{ $listing->price }})
+    </option>
+@endforeach
+
+                </select>
+            </div>
+        </div>
+
+        {{-- ================= TRAVEL BOOKING ================= --}}
+        <div class="category-fields travel-booking-fields col-lg-3 col-md-6 col-sm-12">
+            <div class="form-inner">
+                <label>Travel Date</label>
+                <input type="date" name="travel_date">
+            </div>
+        </div>
+
+        <div class="category-fields travel-booking-fields col-lg-3 col-md-6 col-sm-12">
+            <div class="form-inner">
+                <label>Persons</label>
+                <input type="number" name="persons" placeholder="02">
+            </div>
+        </div>
+
+        {{-- ================= ROOM BOOKING ================= --}}
+        <div class="category-fields room-booking-fields d-none col-lg-3 col-md-6 col-sm-12">
+            <div class="form-inner">
+                <label>Check-in</label>
+                <input type="date" name="checkin_date">
+            </div>
+        </div>
+
+        <div class="category-fields room-booking-fields d-none col-lg-3 col-md-6 col-sm-12">
+            <div class="form-inner">
+                <label>Check-out</label>
+                <input type="date" name="checkout_date">
+            </div>
+        </div>
+
+        <div class="category-fields room-booking-fields d-none col-lg-3 col-md-6 col-sm-12">
+            <div class="form-inner">
+                <label>Rooms</label>
+                <input type="number" name="rooms" placeholder="01">
+            </div>
+        </div>
+
+        {{-- ================= TOUR PACKAGE ================= --}}
+        <div class="category-fields tour-package-fields d-none col-lg-6 col-md-12">
+            <div class="form-inner">
+                <label>Package Requirements</label>
+                <textarea name="package_requirements"
+                          placeholder="Write your requirements"></textarea>
+            </div>
+        </div>
+
+        {{-- MESSAGE --}}
+        <div class="col-lg-6 col-md-12">
+            <div class="form-inner">
+                <label>Message</label>
+                <textarea name="message"
+                          placeholder="Your message"></textarea>
+            </div>
+        </div>
+
+    </div>
+
+    <button type="submit" class="primary-btn1">
+        <span>Submit Now</span>
+        <span>Submit Now</span>
+    </button>
+
+</form>
+
+
+            <p>
+                Can’t find what you’re looking for?
+                create your <a href="">Custom Itinerary</a>
+            </p>
+
+        </div>
+    </div>
+</div>
+
+{{-- ========================= --}}
+{{-- SCRIPT --}}
+{{-- ========================= --}}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const tabs = document.querySelectorAll('.filter-item-list .single-item');
+    const hiddenCategory = document.getElementById('selectedCategory');
+    const listingSelect = document.getElementById('listingSelect');
+    const allCategoryFields = document.querySelectorAll('.category-fields');
+
+    // ============================
+    // Hide All Category Fields
+    // ============================
+    function hideAllFields() {
+        allCategoryFields.forEach(field => field.classList.add('d-none'));
+    }
+
+    // ============================
+    // Show Fields by Slug
+    // ============================
+    function showFields(slug) {
+
+        hideAllFields();
+
+        if (slug === 'travel-booking') {
+            document.querySelectorAll('.travel-booking-fields')
+                .forEach(el => el.classList.remove('d-none'));
+        }
+
+        if (slug === 'room-booking') {
+            document.querySelectorAll('.room-booking-fields')
+                .forEach(el => el.classList.remove('d-none'));
+        }
+
+        if (slug === 'tour-package') {
+            document.querySelectorAll('.tour-package-fields')
+                .forEach(el => el.classList.remove('d-none'));
+        }
+    }
+
+    // ============================
+    // Filter Listings (FIXED)
+    // ============================
+    function filterListings(categoryId) {
+
+        const options = listingSelect.querySelectorAll('option');
+
+        options.forEach(option => {
+
+            if (!option.value) return;
+
+            if (option.dataset.category == categoryId) {
+                option.style.display = "block";
+            } else {
+                option.style.display = "none";
+            }
+
+        });
+
+        listingSelect.value = "";
+
+        // 🔥 DESTROY & REBUILD NICE SELECT
+        if (typeof $ !== 'undefined') {
+
+            if ($(listingSelect).next('.nice-select').length) {
+                $(listingSelect).niceSelect('destroy');
+            }
+
+            $(listingSelect).niceSelect();
+        }
+    }
+
+    // ============================
+    // Tab Click
+    // ============================
+    tabs.forEach(tab => {
+
+        tab.addEventListener('click', function () {
+
+            tabs.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+
+            const categoryId = this.dataset.id;
+            const slug = this.dataset.slug;
+
+            hiddenCategory.value = categoryId;
+
+            filterListings(categoryId);
+            showFields(slug);
+
+        });
+
+    });
+
+    // ============================
+    // Initial Load
+    // ============================
+    const activeTab = document.querySelector('.filter-item-list .single-item.active');
+
+    if (activeTab) {
+        const categoryId = activeTab.dataset.id;
+        const slug = activeTab.dataset.slug;
+
+        hiddenCategory.value = categoryId;
+
+        filterListings(categoryId);
+        showFields(slug);
+    }
+
+});
+</script>
+
+    <!-- home1 Banner Section End-->
+
+
+
+
+    <!-- home1 destination Section Start-->
+    <div class="home1-destination-section mb-100">
+    <div class="container">
+
+        <div class="row justify-content-center mb-60">
+            <div class="col-lg-10">
+                <div class="section-title text-center">
+                    <h2>Featured Packages</h2>
+                </div>
+
+                {{-- Dynamic SubCategory Tabs --}}
+                <ul class="nav nav-pills" role="tablist">
+                    @foreach($packageCategory->subCategories as $key => $sub)
+                        <li class="nav-item">
+                            <button class="nav-link {{ $key == 0 ? 'active' : '' }}"
+                                    data-bs-toggle="pill"
+                                    data-bs-target="#sub-{{ $sub->id }}"
+                                    type="button">
+                                {{ $sub->name }}
+                            </button>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+
+        {{-- TAB CONTENT --}}
+        <div class="tab-content">
+
+            @foreach($packageCategory->subCategories as $key => $sub)
+
+                <div class="tab-pane fade {{ $key == 0 ? 'show active' : '' }}"
+                     id="sub-{{ $sub->id }}">
+
+                    <div class="swiper home1-destination-slider mb-40">
+                        <div class="swiper-wrapper">
+
+                            @foreach($sub->listings as $listing)
+
+                                <div class="swiper-slide">
+                                    <div class="destination-card">
+
+                                        <a href="{{ route('listing.detail', $listing->id) }}" class="destination-img">
+                                            <img src="{{ $listing->getFirstMediaUrl('main') ?? asset('assets/img/default.jpg') }}"
+                                                 alt="{{ $listing->title }}">
+                                        </a>
+
+                                        <div class="destination-content">
+
+                                            <a href="{{ route('listing.detail', $listing->id) }}" class="title-area">
+                                                {{ $listing->title }}
+                                            </a>
+
+                                            <div class="content">
+                                                <p>
+                                                    ₹{{ number_format($listing->price) }}
+                                                    | {{ $listing->days }} Days
+                                                </p>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            @endforeach
+
+                        </div>
+                    </div>
+
+                </div>
+
+            @endforeach
+
+        </div>
+
+    </div>
+</div>
+
+
+
+ <!-- home1 travel package Section Start-->
+    <div class="home1-travel-package-section mb-100">
+    <div class="container">
+
+        <div class="row justify-content-center mb-50">
+            <div class="col-xl-6 col-lg-8">
+                <div class="section-title text-center">
+                    <h2>Popular Travel Package</h2>
+                    <p>A curated list of the most popular travel packages.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row gy-lg-5 gy-4">
+
+            @foreach($travelListings as $listing)
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="package-card">
+
+                        {{-- IMAGE --}}
+                        <div class="package-img-wrap">
+                            <a href="{{ route('listing.detail', $listing->id) }}" class="package-img">
+                                <img src="{{ $listing->getFirstMediaUrl('main') ?: asset('assets/img/default.jpg') }}"
+                                     alt="{{ $listing->title }}">
+                            </a>
+                        </div>
+
+                        <div class="package-content">
+
+                            {{-- TITLE --}}
+                            <h5>
+                                <a href="{{ route('listing.detail', $listing->id) }}">
+                                    {{ $listing->title }}
+                                </a>
+                            </h5>
+
+                            {{-- LOCATION + DAYS --}}
+                            <div class="location-and-time">
+
+                                <div class="location">
+                                    <svg width="14" height="14">
+                                        <circle cx="7" cy="7" r="6"/>
+                                    </svg>
+                                    <span>{{ $listing->location }}</span>
+                                </div>
+
+                                <span>{{ $listing->days }} Days</span>
+                            </div>
+
+                            {{-- BUTTON + PRICE --}}
+                            <div class="btn-and-price-area">
+
+                                <a href="{{ route('enquiry.create', $listing->category->slug) }}" class="primary-btn1">
+                                    <span>Book Now</span>
+                                    <span>Book Now</span>
+                                </a>
+
+                                <div class="price-area">
+                                    <h6>Per Person</h6>
+                                    <span>₹{{ number_format($listing->price) }}</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            @endforeach
+
+        </div>
+
+    </div>
+</div>
+    <!-- home1 travel package Section End-->
+
+
+
+     <!-- Home10 Hotel And Room Section Start -->
+    <div class="home10-hotel-and-room-section">
+        <div class="container">
+            <div class="row justify-content-center mb-60">
+                <div class="col-xl-5 col-lg-7">
+                    <div class="section-title white text-center">
+                        <h2>Luxury Living Spaces</h2>
+                        <p>A curated list of the most popular travel packages based on
+                            different destinations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid mb-60">
+            <div class="hotel-and-room-slider-wrapper">
+                <div class="swiper home10-hotel-slider">
+                    <div class="swiper-wrapper">
+                       @foreach($roomListings as $listing)
+
+        <div class="swiper-slide">
+            <div class="hotel-room-card">
+
+                {{-- IMAGE --}}
+                <div class="hotel-room-img-area">
+                    <img src="{{ $listing->getFirstMediaUrl('main') ?: asset('assets/img/default.jpg') }}"
+                         alt="{{ $listing->title }}">
+
+                    <div class="price">
+                        <h6>₹{{ number_format($listing->price) }}</h6>
+                        <span>/per night</span>
+                    </div>
+
+                    <ul class="room-details">
+
+                        {{-- Room Size (if stored in description or custom field) --}}
+                        <li class="single-room">
+                            <div class="single-room-content">
+                                <h6>{{ $listing->rooms ?? 1 }}</h6>
+                                <span>Rooms</span>
+                            </div>
+                        </li>
+
+                        {{-- Seats / Guests --}}
+                        <li class="single-room">
+                            <div class="single-room-content">
+                                <h6>{{ $listing->seats ?? 2 }} Guest</h6>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+
+                {{-- CONTENT --}}
+                <div class="hotel-room-content">
+                    <h4>
+                        <a href="{{ route('listing.detail', $listing->id) }}">
+                            {{ $listing->title }}
+                        </a>
+                    </h4>
+
+                    <div class="rating-area-and-text">
+                        <ul class="rating-area">
+                            <li><i class="bi bi-star-fill"></i></li>
+                            <li><i class="bi bi-star-fill"></i></li>
+                            <li><i class="bi bi-star-fill"></i></li>
+                            <li><i class="bi bi-star-fill"></i></li>
+                            <li><i class="bi bi-star-fill"></i></li>
+                        </ul>
+                        <span>(5.0)</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="slider-btn-grp">
+                <div class="slider-btn home10-room-hotel-slider-prev">
                     <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path
-                            d="M21.5381 12.8663L20.7881 12.2344V7.91437H21.5381V12.8663ZM23.595 6.64125L22.3744 3.78937C22.3451 3.72215 22.2969 3.66489 22.2356 3.62461C22.1744 3.58432 22.1027 3.56274 22.0294 3.5625H20.2969C20.2237 3.56253 20.1522 3.58405 20.0912 3.62438C20.0302 3.66472 19.9824 3.72209 19.9538 3.78937L18.7331 6.64125C18.7087 6.69834 18.6989 6.76059 18.7044 6.82242C18.71 6.88426 18.7308 6.94375 18.765 6.99558C18.7991 7.04741 18.8456 7.08995 18.9003 7.11941C18.9549 7.14887 19.016 7.16432 19.0781 7.16437H23.25C23.3121 7.16432 23.3732 7.14887 23.4278 7.11941C23.4825 7.08995 23.529 7.04741 23.5632 6.99558C23.5973 6.94375 23.6181 6.88426 23.6237 6.82242C23.6293 6.76059 23.6194 6.69834 23.595 6.64125ZM6.05625 10.9875V10.5862C6.05689 10.3199 6.16298 10.0647 6.35132 9.87632C6.53965 9.68798 6.79491 9.58189 7.06125 9.58125H9.44062C9.70706 9.5816 9.96249 9.68759 10.1509 9.87599C10.3393 10.0644 10.4453 10.3198 10.4456 10.5862V10.9875H12.0544V10.5862C12.0547 10.3198 12.1607 10.0644 12.3491 9.87599C12.5375 9.68759 12.7929 9.5816 13.0594 9.58125H15.4387C15.7051 9.58189 15.9603 9.68798 16.1487 9.87632C16.337 10.0647 16.4431 10.3199 16.4437 10.5862V10.9875H18.375V9.02625C18.3743 8.47798 18.1561 7.95237 17.7684 7.56469C17.3808 7.177 16.8551 6.95887 16.3069 6.95813H6.19312C5.64485 6.95887 5.11925 7.177 4.73156 7.56469C4.34387 7.95237 4.12574 8.47798 4.125 9.02625V10.9875H6.05625ZM20.7206 14.1375H21.8869L21.5381 13.845L20.7881 13.215L19.0294 11.7375H3.47062L0.613125 14.1375H20.7206ZM2.0625 19.1794H1.3125V20.0625C1.3128 20.1619 1.3524 20.2571 1.42266 20.3273C1.49292 20.3976 1.58814 20.4372 1.6875 20.4375H3.51375C3.61311 20.4372 3.70833 20.3976 3.77859 20.3273C3.84885 20.2571 3.88845 20.1619 3.88875 20.0625V19.1794H2.0625ZM19.3612 19.1794H18.6112V20.0625C18.6115 20.1619 18.6512 20.2571 18.7214 20.3273C18.7917 20.3976 18.8869 20.4372 18.9862 20.4375H20.8125C20.9119 20.4372 21.0071 20.3976 21.0773 20.3273C21.1476 20.2571 21.1872 20.1619 21.1875 20.0625V19.1794H19.3612ZM1.125 14.8875H0.375V18.0544C0.375297 18.1537 0.414901 18.249 0.485163 18.3192C0.555425 18.3895 0.650635 18.4291 0.75 18.4294H21.75C21.8494 18.4291 21.9446 18.3895 22.0148 18.3192C22.0851 18.249 22.1247 18.1537 22.125 18.0544V14.8875H1.125Z"/>
+                            d="M11.5999 20.3917C11.7476 20.3956 11.8933 20.3567 12.0195 20.2797C12.3911 20.0509 12.5043 19.5541 12.2807 19.1829C12.2619 19.1501 9.92625 15.2525 5.46785 12.7997H22.7999C23.2411 12.7997 23.5999 12.4409 23.5999 11.9997C23.5999 11.5585 23.2411 11.1997 22.7999 11.1997H5.46785C9.90145 8.76086 12.2635 4.84606 12.2867 4.80686C12.5055 4.43326 12.3843 3.93606 12.0111 3.71486C11.6327 3.49046 11.1343 3.62046 10.9083 4.00086C10.5447 4.58086 7.13505 9.78046 1.01945 11.2193C0.653454 11.3093 0.399853 11.6297 0.399853 12.0001C0.399853 12.3705 0.651854 12.6917 1.01265 12.7793C7.15425 14.2233 10.5523 19.4297 10.9195 20.0189C11.0635 20.2497 11.3299 20.3865 11.5999 20.3917Z" />
                     </svg>
-                    <span>Hotels</span>
-                </li>
-                <li class="single-item visa">
+                </div>
+                <div class="progress-pagination2"></div>
+                <div class="slider-btn home10-room-hotel-slider-next">
                     <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <g>
-                            <path
-                                d="M16.9221 1.23284C16.9197 1.03856 16.8717 0.847553 16.782 0.675228C16.6922 0.502902 16.5632 0.354077 16.4054 0.240751C16.244 0.122177 16.0563 0.0444497 15.8583 0.0142152C15.6604 -0.0160194 15.458 0.0021383 15.2686 0.0671357L7.1955 2.88632H16.9221V1.23284ZM12.375 15.0808C12.5734 15.0808 13.1232 14.0887 13.2018 12.1872H11.5483C11.6268 14.0887 12.1766 15.0808 12.375 15.0808ZM12.375 8.46682C12.1766 8.46682 11.6268 9.45891 11.5483 11.3604H13.2018C13.1232 9.45891 12.5734 8.46682 12.375 8.46682ZM11.2341 14.8741C10.909 14.0149 10.7355 13.1057 10.7215 12.1872H9.097C9.17316 12.7877 9.41272 13.3559 9.78957 13.8297C10.1664 14.3035 10.6661 14.6647 11.2341 14.8741ZM11.2341 8.67351C10.6661 8.88285 10.1664 9.24411 9.78957 9.7179C9.41272 10.1917 9.17316 10.7598 9.097 11.3604H10.7215C10.7355 10.4419 10.909 9.53271 11.2341 8.67351Z"/>
-                            <path
-                                d="M4.52094 4.95319V23.1415C4.52094 23.4704 4.65159 23.7858 4.88416 24.0184C5.11672 24.2509 5.43215 24.3816 5.76105 24.3816H18.9889C19.3178 24.3816 19.6332 24.2509 19.8658 24.0184C20.0984 23.7858 20.229 23.4704 20.229 23.1415V4.95319C20.229 4.62429 20.0984 4.30886 19.8658 4.07629C19.6332 3.84373 19.3178 3.71307 18.9889 3.71307H5.76105C5.43215 3.71307 5.11672 3.84373 4.88416 4.07629C4.65159 4.30886 4.52094 4.62429 4.52094 4.95319ZM15.6819 20.4546H9.06801C8.95838 20.4546 8.85324 20.411 8.77571 20.3335C8.69819 20.256 8.65464 20.1508 8.65464 20.0412C8.65464 19.9316 8.69819 19.8264 8.77571 19.7489C8.85324 19.6714 8.95838 19.6278 9.06801 19.6278H15.6819C15.7916 19.6278 15.8967 19.6714 15.9742 19.7489C16.0518 19.8264 16.0953 19.9316 16.0953 20.0412C16.0953 20.1508 16.0518 20.256 15.9742 20.3335C15.8967 20.411 15.7916 20.4546 15.6819 20.4546ZM10.3081 18.8011C10.3081 18.6915 10.3517 18.5863 10.4292 18.5088C10.5067 18.4313 10.6119 18.3877 10.7215 18.3877H14.0285C14.1381 18.3877 14.2432 18.4313 14.3208 18.5088C14.3983 18.5863 14.4418 18.6915 14.4418 18.8011C14.4418 18.9107 14.3983 19.0159 14.3208 19.0934C14.2432 19.1709 14.1381 19.2145 14.0285 19.2145H10.7215C10.6119 19.2145 10.5067 19.1709 10.4292 19.0934C10.3517 19.0159 10.3081 18.9107 10.3081 18.8011ZM12.375 7.64009C13.1925 7.64009 13.9918 7.88253 14.6715 8.33675C15.3513 8.79097 15.8811 9.43656 16.194 10.1919C16.5069 10.9472 16.5888 11.7784 16.4293 12.5802C16.2698 13.3821 15.8761 14.1187 15.2979 14.6968C14.7198 15.2749 13.9833 15.6686 13.1814 15.8281C12.3796 15.9876 11.5484 15.9057 10.7931 15.5928C10.0377 15.28 9.39214 14.7501 8.93792 14.0704C8.48371 13.3906 8.24127 12.5914 8.24127 11.7738C8.24127 10.6775 8.67678 9.62605 9.452 8.85083C10.2272 8.07561 11.2786 7.64009 12.375 7.64009Z"/>
-                            <path
-                                d="M15.653 11.3604C15.5768 10.7599 15.3373 10.1917 14.9604 9.71792C14.5836 9.24412 14.0839 8.88287 13.5159 8.67352C13.841 9.53272 14.0145 10.4419 14.0284 11.3604H15.653ZM15.653 12.1872H14.0284C14.0145 13.1057 13.841 14.0149 13.5159 14.8741C14.0839 14.6647 14.5836 14.3035 14.9604 13.8297C15.3373 13.3559 15.5768 12.7877 15.653 12.1872Z"/>
-                        </g>
+                        <path
+                            d="M12.4001 20.3917C12.2524 20.3956 12.1067 20.3567 11.9805 20.2797C11.6089 20.0509 11.4957 19.5541 11.7193 19.1829C11.7381 19.1501 14.0737 15.2525 18.5321 12.7997H1.20015C0.758946 12.7997 0.400146 12.4409 0.400146 11.9997C0.400146 11.5585 0.758946 11.1997 1.20015 11.1997H18.5321C14.0985 8.76086 11.7365 4.84606 11.7133 4.80686C11.4945 4.43326 11.6157 3.93606 11.9889 3.71486C12.3673 3.49046 12.8657 3.62046 13.0917 4.00086C13.4553 4.58086 16.8649 9.78046 22.9805 11.2193C23.3465 11.3093 23.6001 11.6297 23.6001 12.0001C23.6001 12.3705 23.3481 12.6917 22.9873 12.7793C16.8457 14.2233 13.4477 19.4297 13.0805 20.0189C12.9365 20.2497 12.6701 20.3865 12.4001 20.3917Z" />
                     </svg>
-                    <span>Visa</span>
-                </li>
-                <li class="single-item">
-                    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M12 22C3.765 22 2 20.235 2 12C2 3.765 3.765 2 12 2C20.235 2 22 3.765 22 12C22 20.235 20.235 22 12 22ZM14.8135 7.43172C14.7403 7.29853 14.632 7.1879 14.5005 7.11182C14.3689 7.03573 14.219 6.99709 14.067 7.00007C13.9151 7.00305 13.7668 7.04754 13.6383 7.12873C13.5098 7.20992 13.406 7.3247 13.338 7.46066L9.88156 14.3736L8.35523 11.5984C8.28333 11.4677 8.17763 11.3586 8.04919 11.2827C7.92074 11.2067 7.77426 11.1667 7.62504 11.1667H6.16672C5.70648 11.1667 5.3334 11.5398 5.3334 12C5.3334 12.4602 5.70648 12.8333 6.16672 12.8333H7.13234L9.18656 16.5682C9.25981 16.7014 9.36809 16.812 9.49967 16.8881C9.63125 16.9642 9.78113 17.0028 9.93309 16.9998C10.085 16.9969 10.2333 16.9524 10.3618 16.8712C10.4903 16.7901 10.5941 16.6753 10.6621 16.5393L14.1186 9.62645L15.6449 12.4016C15.7168 12.5324 15.8225 12.6414 15.9509 12.7174C16.0793 12.7933 16.2258 12.8334 16.375 12.8334H17.8334C18.2936 12.8334 18.6667 12.4603 18.6667 12C18.6667 11.5398 18.2936 11.1667 17.8334 11.1667H16.8678L14.8135 7.43172Z"/>
-                    </svg>
-                    <span>Experience</span>
-                </li>
-            </ul>
-            <div class="filter-input-wrap">
-                <form class="filter-input show">
-                    <div class="single-search-box">
-                        <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-                            <g>
-                                <path
-                                    d="M12.5944 8.99987C12.5944 10.988 10.9826 12.5998 8.99443 12.5998C7.00627 12.5998 5.39465 10.988 5.39465 8.99987C5.39465 7.0117 7.00627 5.40009 8.99443 5.40009C10.9826 5.40009 12.5944 7.0117 12.5944 8.99987Z"/>
-                                <path
-                                    d="M17.4601 8.4599H16.2564C15.9858 4.86535 13.1291 2.00812 9.53458 1.7372V0.539976C9.53458 0.241723 9.29268 0 8.9946 0C8.69635 0 8.45462 0.241723 8.45462 0.539976V1.7372C4.85986 2.00812 2.00297 4.86535 1.73235 8.4599H0.540018C0.241723 8.4599 0 8.7017 0 8.99987C0 9.29813 0.241723 9.53985 0.539976 9.53985H1.73239C2.00297 13.1344 4.85991 15.9916 8.45441 16.2625V17.4601C8.45441 17.7583 8.69614 18 8.99439 18C9.29251 18 9.53428 17.7583 9.53428 17.4601V16.2625C13.1289 15.9918 15.9858 13.1346 16.2564 9.53985H17.4601C17.7583 9.53985 18 9.29813 18 8.99987C18 8.70175 17.7583 8.4599 17.4601 8.4599ZM8.99443 15.2096C5.56504 15.2094 2.78509 12.4291 2.78509 8.9997C2.78522 5.57014 5.56554 2.7902 8.99494 2.7902C12.4245 2.7902 15.2046 5.57048 15.2046 8.99987C15.2005 12.428 12.4225 15.2058 8.99443 15.2096Z"/>
-                            </g>
-                        </svg>
-                        <div class="custom-select-dropdown destination-dropdown">
-                            <input type="text" readonly value="Where are you going?">
-                            <div class="input-field-value">
-                                <div class="destination">
-                                    <h6>Bali Paradaise</h6>
-                                    <span>Indonesia</span>
-                                </div> 
-                            </div>
-                        </div>
-                        <div class="custom-select-wrap">
-                            <div class="custom-select-search-area">
-                                <i class='bx bx-search'></i>
-                                <input type="text" placeholder="Type Your Destination">
-                            </div>
-                            <ul class="option-list-destination">
-                                <li>
-                                    <div class="destination">
-                                        <h6>Bali Paradaise</h6>
-                                        <span>Indonesia</span>
-                                    </div> 
-                                    <div class="tour">
-                                        <span>50 <br> Tour</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="destination">
-                                        <h6>Cox's Bazar</h6>
-                                        <span>Bangladesh</span>
-                                    </div> 
-                                    <div class="tour">
-                                        <span>50 <br> Tour</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="destination">
-                                        <h6>POKHARA</h6>
-                                        <span>Nepal</span>
-                                    </div> 
-                                    <div class="tour">
-                                        <span>30 <br> Tour</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="destination">
-                                        <h6>Himachal</h6>
-                                        <span>India</span>
-                                    </div> 
-                                    <div class="tour">
-                                        <span>30 <br> Tour</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="destination">
-                                        <h6>Sao Paulo</h6>
-                                        <span>Brazil</span>
-                                    </div> 
-                                    <div class="tour">
-                                        <span>20 <br> Tour</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="destination">
-                                        <h6>Bangkok</h6>
-                                        <span>Thailand</span>
-                                    </div> 
-                                    <div class="tour">
-                                        <span>40 <br> Tour</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="destination">
-                                        <h6>Barcelona</h6>
-                                        <span>Spain</span>
-                                    </div> 
-                                    <div class="tour">
-                                        <span>20 <br> Tour</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="destination">
-                                        <h6>Burj Khalifa</h6>
-                                        <span>Dubai</span>
-                                    </div> 
-                                    <div class="tour">
-                                        <span>35 <br> Tour</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="destination">
-                                        <h6>New York</h6>
-                                        <span>United States</span>
-                                    </div> 
-                                    <div class="tour">
-                                        <span>45 <br> Tour</span>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="single-search-box date-field">
-                        <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-                            <g>
-                                <path
-                                    d="M16.125 1.28394H14.8913V2.43609C14.9509 2.57307 14.9755 2.72275 14.9629 2.87163C14.9502 3.0205 14.9007 3.16388 14.8188 3.28883C14.7368 3.41379 14.6251 3.51638 14.4936 3.58736C14.3622 3.65834 14.2151 3.69547 14.0657 3.6954C13.9163 3.69533 13.7692 3.65807 13.6378 3.58697C13.5064 3.51587 13.3948 3.41318 13.313 3.28815C13.2312 3.16312 13.1818 3.0197 13.1693 2.87081C13.1567 2.72193 13.1815 2.57227 13.2413 2.43534V1.28409H11.5136V2.43609C11.5733 2.57304 11.598 2.72272 11.5854 2.87159C11.5728 3.02047 11.5234 3.16388 11.4415 3.28887C11.3597 3.41386 11.248 3.5165 11.1165 3.58754C10.9851 3.65858 10.838 3.69577 10.6886 3.69577C10.5392 3.69577 10.3922 3.65858 10.2607 3.58754C10.1293 3.5165 10.0176 3.41386 9.93572 3.28887C9.85387 3.16388 9.80441 3.02047 9.79183 2.87159C9.77924 2.72272 9.80391 2.57304 9.86363 2.43609V1.28394H8.13638V2.43609C8.19609 2.57304 8.22076 2.72272 8.20818 2.87159C8.19559 3.02047 8.14613 3.16388 8.06428 3.28887C7.98242 3.41386 7.87073 3.5165 7.73929 3.58754C7.60784 3.65858 7.46079 3.69577 7.31138 3.69577C7.16197 3.69577 7.01491 3.65858 6.88346 3.58754C6.75202 3.5165 6.64033 3.41386 6.55848 3.28887C6.47662 3.16388 6.42716 3.02047 6.41457 2.87159C6.40199 2.72272 6.42666 2.57304 6.48638 2.43609V1.28394H4.75875V2.43519C4.81852 2.57212 4.84327 2.72178 4.83075 2.87066C4.81823 3.01955 4.76884 3.16297 4.68704 3.288C4.60524 3.41303 4.49359 3.51572 4.36219 3.58682C4.23078 3.65792 4.08373 3.69518 3.93432 3.69525C3.78491 3.69532 3.63784 3.65819 3.50636 3.58721C3.37489 3.51623 3.26315 3.41364 3.18124 3.28868C3.09932 3.16373 3.0498 3.02035 3.03715 2.87148C3.02449 2.7226 3.0491 2.57292 3.10875 2.43594V1.28394H1.875C1.37772 1.28394 0.900806 1.48148 0.549175 1.83311C0.197544 2.18474 0 2.66165 0 3.15894L0 16.0964C4.97191e-05 16.5937 0.19761 17.0706 0.54923 17.4222C0.90085 17.7738 1.37773 17.9714 1.875 17.9714H16.125C16.6223 17.9714 17.0992 17.7738 17.4508 17.4222C17.8024 17.0706 18 16.5937 18 16.0964V3.15894C18 2.66165 17.8025 2.18474 17.4508 1.83311C17.0992 1.48148 16.6223 1.28394 16.125 1.28394ZM17.25 15.9089C17.25 16.257 17.1117 16.5909 16.8656 16.837C16.6194 17.0832 16.2856 17.2214 15.9375 17.2214H2.0625C1.7144 17.2214 1.38056 17.0832 1.13442 16.837C0.888281 16.5909 0.75 16.257 0.75 15.9089V6.34644C0.75 5.99834 0.888281 5.6645 1.13442 5.41836C1.38056 5.17222 1.7144 5.03394 2.0625 5.03394H15.9375C16.2856 5.03394 16.6194 5.17222 16.8656 5.41836C17.1117 5.6645 17.25 5.99834 17.25 6.34644V15.9089Z"/>
-                                <path
-                                    d="M14.6287 0.591064C14.6287 0.280404 14.3769 0.0285645 14.0662 0.0285645C13.7556 0.0285645 13.5037 0.280404 13.5037 0.591064V2.84106C13.5037 3.15172 13.7556 3.40356 14.0662 3.40356C14.3769 3.40356 14.6287 3.15172 14.6287 2.84106V0.591064Z"/>
-                                <path
-                                    d="M11.2512 0.591064C11.2512 0.280404 10.9994 0.0285645 10.6887 0.0285645C10.3781 0.0285645 10.1262 0.280404 10.1262 0.591064V2.84106C10.1262 3.15172 10.3781 3.40356 10.6887 3.40356C10.9994 3.40356 11.2512 3.15172 11.2512 2.84106V0.591064Z"/>
-                                <path
-                                    d="M7.87378 0.591064C7.87378 0.280404 7.62194 0.0285645 7.31128 0.0285645C7.00062 0.0285645 6.74878 0.280404 6.74878 0.591064V2.84106C6.74878 3.15172 7.00062 3.40356 7.31128 3.40356C7.62194 3.40356 7.87378 3.15172 7.87378 2.84106V0.591064Z"/>
-                                <path
-                                    d="M4.49628 0.591064C4.49628 0.280404 4.24444 0.0285645 3.93378 0.0285645C3.62312 0.0285645 3.37128 0.280404 3.37128 0.591064V2.84106C3.37128 3.15172 3.62312 3.40356 3.93378 3.40356C4.24444 3.40356 4.49628 3.15172 4.49628 2.84106V0.591064Z"/>
-                                <path
-                                    d="M5.57379 12.859C5.57379 11.841 6.19393 11.266 6.94745 10.9237C6.31772 10.5738 5.93327 9.97518 5.93327 9.23362C5.93327 7.84346 7.14253 6.93768 9.03335 6.93768C10.665 6.93768 12.0754 7.71146 12.0754 9.2562C12.0754 10.0578 11.5991 10.5852 11.0117 10.8392C11.8151 11.133 12.4262 11.8054 12.4262 12.8442C12.4262 14.553 10.7024 15.3177 8.95704 15.3177C7.14785 15.3177 5.57379 14.5132 5.57379 12.859ZM10.4611 12.8062C10.4611 12.1583 10.0752 11.6429 8.99162 11.6429C7.89793 11.6429 7.50868 12.1281 7.50868 12.7625C7.50868 13.578 8.28429 13.9316 8.9993 13.9316C9.72377 13.9316 10.4611 13.636 10.4611 12.8062ZM7.83377 9.24273C7.83377 9.7755 8.13992 10.2237 9.04127 10.2237C9.88592 10.2237 10.171 9.82871 10.171 9.25623C10.171 8.62605 9.6497 8.29207 8.99612 8.29207C8.39034 8.29203 7.83377 8.57565 7.83377 9.24273Z"/>
-                            </g>
-                        </svg>
-                        <div class="custom-select-dropdown">
-                            <input type="text" name="inOut" readonly value="Sep 12 - Sep 20">
-                            <div class="selected-date"></div>
-                        </div>
-                    </div>
-                    <div class="single-search-box">
-                        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <g>
-                                <path
-                                    d="M19.3024 4.186H10C9.81501 4.186 9.63755 4.1125 9.50671 3.98166C9.37587 3.85082 9.30237 3.67336 9.30237 3.48833C9.30237 3.30329 9.37587 3.12583 9.50671 2.99499C9.63755 2.86415 9.81501 2.79065 10 2.79065H19.3024C19.4874 2.79065 19.6649 2.86415 19.7957 2.99499C19.9266 3.12583 20.0001 3.30329 20.0001 3.48833C20.0001 3.67336 19.9266 3.85082 19.7957 3.98166C19.6649 4.1125 19.4874 4.186 19.3024 4.186ZM17.4419 7.90695H10C9.81501 7.90695 9.63755 7.83344 9.50671 7.7026C9.37587 7.57176 9.30237 7.39431 9.30237 7.20927C9.30237 7.02424 9.37587 6.84678 9.50671 6.71594C9.63755 6.5851 9.81501 6.5116 10 6.5116H17.4419C17.627 6.5116 17.8044 6.5851 17.9353 6.71594C18.0661 6.84678 18.1396 7.02424 18.1396 7.20927C18.1396 7.39431 18.0661 7.57176 17.9353 7.7026C17.8044 7.83344 17.627 7.90695 17.4419 7.90695ZM19.3024 13.4884H10C9.81501 13.4884 9.63755 13.4149 9.50671 13.284C9.37587 13.1532 9.30237 12.9757 9.30237 12.7907C9.30237 12.6057 9.37587 12.4282 9.50671 12.2974C9.63755 12.1665 9.81501 12.093 10 12.093H19.3024C19.4874 12.093 19.6649 12.1665 19.7957 12.2974C19.9266 12.4282 20.0001 12.6057 20.0001 12.7907C20.0001 12.9757 19.9266 13.1532 19.7957 13.284C19.6649 13.4149 19.4874 13.4884 19.3024 13.4884ZM17.4419 17.2093H10C9.81501 17.2093 9.63755 17.1358 9.50671 17.005C9.37587 16.8741 9.30237 16.6967 9.30237 16.5116C9.30237 16.3266 9.37587 16.1491 9.50671 16.0183C9.63755 15.8875 9.81501 15.814 10 15.814H17.4419C17.627 15.814 17.8044 15.8875 17.9353 16.0183C18.0661 16.1491 18.1396 16.3266 18.1396 16.5116C18.1396 16.6967 18.0661 16.8741 17.9353 17.005C17.8044 17.1358 17.627 17.2093 17.4419 17.2093Z"/>
-                                <path
-                                    d="M3.48826 8.83719C5.41485 8.83719 6.97665 7.27538 6.97665 5.3488C6.97665 3.42222 5.41485 1.86041 3.48826 1.86041C1.56168 1.86041 -0.00012207 3.42222 -0.00012207 5.3488C-0.00012207 7.27538 1.56168 8.83719 3.48826 8.83719Z"/>
-                                <path
-                                    d="M3.48826 18.1396C5.41485 18.1396 6.97665 16.5778 6.97665 14.6512C6.97665 12.7246 5.41485 11.1628 3.48826 11.1628C1.56168 11.1628 -0.00012207 12.7246 -0.00012207 14.6512C-0.00012207 16.5778 1.56168 18.1396 3.48826 18.1396Z"/>
-                            </g>
-                        </svg>
-                        <div class="custom-select-dropdown">
-                            <input type="text" readonly value="Family Tour">
-                            <span>Category</span>
-                        </div>
-                        <div class="custom-select-wrap two">
-                            <ul class="option-list">
-                                <li class="single-item">
-                                    <h6>Family Tour</h6>
-                                </li>
-                                <li class="single-item">
-                                    <h6>Honeymoon Tour</h6>
-                                </li>
-                                <li class="single-item">
-                                    <h6>Group Tour</h6>
-                                </li>
-                                <li class="single-item">
-                                    <h6>Adventure Tour</h6>
-                                </li>
-                                <li class="single-item">
-                                    <h6>Solo Tour</h6>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <button type="submit" class="primary-btn1">
-                        <span>
-                            <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-                                <g>
-                                    <path
-                                        d="M17.7799 16.746L14.6861 13.7226L14.6137 13.6126C14.4774 13.4781 14.2936 13.4028 14.1022 13.4028C13.9107 13.4028 13.7269 13.4781 13.5906 13.6126C10.9613 16.0246 6.91095 16.1554 4.12376 13.9188C1.33658 11.6821 0.680209 7.7696 2.58814 4.77921C4.49607 1.78882 8.37732 0.64519 11.6585 2.10734C14.9396 3.56949 16.5993 7.18566 15.539 10.555C15.5016 10.675 15.4972 10.8029 15.5262 10.9251C15.5552 11.0474 15.6166 11.1597 15.7039 11.2501C15.7921 11.3421 15.9027 11.4097 16.0248 11.4463C16.1469 11.4829 16.2764 11.4872 16.4007 11.4589C16.5243 11.4317 16.6387 11.3725 16.7323 11.2872C16.8258 11.202 16.8954 11.0936 16.934 10.973C18.1996 6.97472 16.2878 2.6716 12.434 0.848041C8.58017 -0.975514 3.94271 0.225775 1.52009 3.67706C-0.902526 7.12835 -0.382565 11.7918 2.74388 14.6518C5.87033 17.5118 10.6646 17.7083 14.0273 15.1173L16.7667 17.7955C16.9042 17.9276 17.0875 18.0014 17.2782 18.0014C17.4689 18.0014 17.6522 17.9276 17.7897 17.7955C17.8568 17.7298 17.9101 17.6513 17.9465 17.5648C17.9829 17.4782 18.0016 17.3852 18.0016 17.2913C18.0016 17.1974 17.9829 17.1045 17.9465 17.0179C17.9101 16.9313 17.8568 16.8529 17.7897 16.7872L17.7799 16.746Z"/>
-                                </g>
-                            </svg>
-                            SEARCH
-                        </span>
-                        <span>
-                            <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-                                <g>
-                                    <path
-                                        d="M17.7799 16.746L14.6861 13.7226L14.6137 13.6126C14.4774 13.4781 14.2936 13.4028 14.1022 13.4028C13.9107 13.4028 13.7269 13.4781 13.5906 13.6126C10.9613 16.0246 6.91095 16.1554 4.12376 13.9188C1.33658 11.6821 0.680209 7.7696 2.58814 4.77921C4.49607 1.78882 8.37732 0.64519 11.6585 2.10734C14.9396 3.56949 16.5993 7.18566 15.539 10.555C15.5016 10.675 15.4972 10.8029 15.5262 10.9251C15.5552 11.0474 15.6166 11.1597 15.7039 11.2501C15.7921 11.3421 15.9027 11.4097 16.0248 11.4463C16.1469 11.4829 16.2764 11.4872 16.4007 11.4589C16.5243 11.4317 16.6387 11.3725 16.7323 11.2872C16.8258 11.202 16.8954 11.0936 16.934 10.973C18.1996 6.97472 16.2878 2.6716 12.434 0.848041C8.58017 -0.975514 3.94271 0.225775 1.52009 3.67706C-0.902526 7.12835 -0.382565 11.7918 2.74388 14.6518C5.87033 17.5118 10.6646 17.7083 14.0273 15.1173L16.7667 17.7955C16.9042 17.9276 17.0875 18.0014 17.2782 18.0014C17.4689 18.0014 17.6522 17.9276 17.7897 17.7955C17.8568 17.7298 17.9101 17.6513 17.9465 17.5648C17.9829 17.4782 18.0016 17.3852 18.0016 17.2913C18.0016 17.1974 17.9829 17.1045 17.9465 17.0179C17.9101 16.9313 17.8568 16.8529 17.7897 16.7872L17.7799 16.746Z"/>
-                                </g>
-                            </svg>
-                            SEARCH
-                        </span>
-                    </button>
-                </form>
-              
-               
-                <p>Can’t find what you’re looking for? create your <a href="contact.html">Custom Itinerary</a></p>
+                </div>
             </div>
         </div>
     </div>
-    <!-- home1 Banner Section End-->
+    <!-- Home10 Hotel And Room Section End -->
+
+
+    <!-- home1 offer banner Section Start-->
+    <div class="home1-offer-banner-section mb-100" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%), url(assets/img/home1/home1-offer-banner-bg.jpg);">
+        <div class="container">
+            <div class="banner-content">
+                <span>Make Meet Happiness.</span>
+                <h2>Travel isn’t a luxury, it’s a way of life!</h2>
+                <div class="author-area">
+                    <h5>Mr. Gabriel Haringson</h5>
+                    <span>CEO, GoFly</span>
+                </div>
+                <a href="travel-package-01.html" class="primary-btn1 two">
+                    <span>
+                        Grab the Deal Now
+                        <svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9.73535 1.14746C9.57033 1.97255 9.32924 3.26406 9.24902 4.66797C9.16817 6.08312 9.25559 7.5453 9.70214 8.73633C9.84754 9.12406 9.65129 9.55659 9.26367 9.70215C8.9001 9.83849 8.4969 9.67455 8.32812 9.33398L8.29785 9.26367L8.19921 8.98438C7.73487 7.5758 7.67054 5.98959 7.75097 4.58203C7.77875 4.09598 7.82525 3.62422 7.87988 3.17969L1.53027 9.53027C1.23738 9.82317 0.762615 9.82317 0.469722 9.53027C0.176829 9.23738 0.176829 8.76262 0.469722 8.46973L6.83593 2.10254C6.3319 2.16472 5.79596 2.21841 5.25 2.24902C3.8302 2.32862 2.2474 2.26906 0.958003 1.79102L0.704097 1.68945L0.635738 1.65527C0.303274 1.47099 0.157578 1.06102 0.310542 0.704102C0.463655 0.347333 0.860941 0.170391 1.22363 0.28418L1.29589 0.310547L1.48828 0.387695C2.47399 0.751207 3.79966 0.827571 5.16601 0.750977C6.60111 0.670504 7.97842 0.428235 8.86132 0.262695L9.95312 0.0585938L9.73535 1.14746Z"/>
+                        </svg>
+                    </span>
+                    <span>
+                        Grab the Deal Now
+                        <svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9.73535 1.14746C9.57033 1.97255 9.32924 3.26406 9.24902 4.66797C9.16817 6.08312 9.25559 7.5453 9.70214 8.73633C9.84754 9.12406 9.65129 9.55659 9.26367 9.70215C8.9001 9.83849 8.4969 9.67455 8.32812 9.33398L8.29785 9.26367L8.19921 8.98438C7.73487 7.5758 7.67054 5.98959 7.75097 4.58203C7.77875 4.09598 7.82525 3.62422 7.87988 3.17969L1.53027 9.53027C1.23738 9.82317 0.762615 9.82317 0.469722 9.53027C0.176829 9.23738 0.176829 8.76262 0.469722 8.46973L6.83593 2.10254C6.3319 2.16472 5.79596 2.21841 5.25 2.24902C3.8302 2.32862 2.2474 2.26906 0.958003 1.79102L0.704097 1.68945L0.635738 1.65527C0.303274 1.47099 0.157578 1.06102 0.310542 0.704102C0.463655 0.347333 0.860941 0.170391 1.22363 0.28418L1.29589 0.310547L1.48828 0.387695C2.47399 0.751207 3.79966 0.827571 5.16601 0.750977C6.60111 0.670504 7.97842 0.428235 8.86132 0.262695L9.95312 0.0585938L9.73535 1.14746Z"/>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- home1 offer banner Section End-->
+
+     <!-- home1 partner area Section Start-->
+   <div class="partner-section mb-100">
+    <div class="container">
+
+        <div class="partner-title">
+            <h5>Those Company You Can Easily Trust!</h5>
+        </div>
+
+        <div class="partner-wrap">
+            <div class="marquee">
+
+                {{-- First Group --}}
+                <div class="marquee__group">
+
+                    @foreach($brands as $brand)
+                        <a href="{{ $brand->website_url ?? '#' }}" target="_blank">
+                            <img src="{{ $brand->getFirstMediaUrl('brand_logo') ?: asset('assets/img/default.jpg') }}"
+                                 alt="{{ $brand->name }}">
+                        </a>
+                    @endforeach
+
+                </div>
+
+                {{-- Duplicate for Infinite Scroll --}}
+                <div class="marquee__group" aria-hidden="true">
+
+                    @foreach($brands as $brand)
+                        <a href="{{ $brand->website_url ?? '#' }}" target="_blank">
+                            <img src="{{ $brand->getFirstMediaUrl('brand_logo') ?: asset('assets/img/default.jpg') }}"
+                                 alt="{{ $brand->name }}">
+                        </a>
+                    @endforeach
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+    <!-- home1 partner area Section End-->
 
     @endsection

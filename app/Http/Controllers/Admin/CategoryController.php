@@ -32,7 +32,7 @@ class CategoryController extends Controller
             'status' => $request->status ?? 1,
         ]);
 
-        return redirect()->route('categories.index')
+        return redirect()->route('admin.categories.index')
             ->with('success','Category Created Successfully');
     }
 
@@ -53,7 +53,7 @@ class CategoryController extends Controller
             'status' => $request->status ?? 1,
         ]);
 
-        return redirect()->route('categories.index')
+        return redirect()->route('admin.categories.index')
             ->with('success','Category Updated Successfully');
     }
 
@@ -61,7 +61,7 @@ class CategoryController extends Controller
     {
         $category->delete();
 
-        return redirect()->route('categories.index')
+        return redirect()->route('admin.categories.index')
             ->with('success','Category Deleted Successfully');
     }
 }

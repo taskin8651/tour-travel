@@ -36,7 +36,7 @@ class SubCategoryController extends Controller
             'status' => $request->status ?? 1,
         ]);
 
-        return redirect()->route('sub-categories.index')
+        return redirect()->route('admin.sub-categories.index')
             ->with('success','Sub Category Created Successfully');
     }
 
@@ -60,7 +60,7 @@ class SubCategoryController extends Controller
             'status' => $request->status ?? 1,
         ]);
 
-        return redirect()->route('sub-categories.index')
+        return redirect()->route('admin.sub-categories.index')
             ->with('success','Sub Category Updated Successfully');
     }
 

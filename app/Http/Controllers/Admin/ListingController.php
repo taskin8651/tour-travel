@@ -28,7 +28,6 @@ class ListingController extends Controller
     {
         $request->validate([
             'category_id' => 'required',
-            'sub_category_id' => 'required',
             'title' => 'required',
             'price' => 'nullable|numeric',
             'rooms' => 'nullable|integer',
@@ -66,7 +65,6 @@ class ListingController extends Controller
     {
         $request->validate([
             'category_id' => 'required',
-            'sub_category_id' => 'required',
             'title' => 'required',
             'image' => 'nullable|image',
             'gallery.*' => 'nullable|image'

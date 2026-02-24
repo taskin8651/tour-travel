@@ -7,7 +7,7 @@
     <div class="flex items-center justify-between mb-6">
         <h1 class="text-2xl font-semibold text-gray-800">Sub Categories</h1>
 
-        <a href="{{ route('sub-categories.create') }}"
+        <a href="{{ route('admin.sub-categories.create') }}"
            class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg shadow transition">
             + Add Sub Category
         </a>
@@ -63,12 +63,12 @@
                     </td>
 
                     <td class="px-6 py-4 text-right flex justify-end gap-2">
-                        <a href="{{ route('sub-categories.edit',$sub->id) }}"
+                        <a href="{{ route('admin.sub-categories.edit',$sub->id) }}"
                            class="bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded-lg text-xs">
                             Edit
                         </a>
 
-                        <form action="{{ route('sub-categories.destroy',$sub->id) }}"
+                        <form action="{{ route('admin.sub-categories.destroy',$sub->id) }}"
                               method="POST">
                             @csrf
                             @method('DELETE')

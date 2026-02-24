@@ -7,7 +7,7 @@
     <div class="flex items-center justify-between mb-6">
         <h1 class="text-2xl font-semibold text-gray-800">Categories</h1>
 
-        <a href="{{ route('categories.create') }}"
+        <a href="{{ route('admin.categories.create') }}"
            class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg shadow transition">
             + Add Category
         </a>
@@ -54,12 +54,12 @@
                         @endif
                     </td>
                     <td class="px-6 py-4 text-right flex justify-end gap-2">
-                        <a href="{{ route('categories.edit',$category->id) }}"
+                        <a href="{{ route('admin.categories.edit',$category->id) }}"
                            class="bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded-lg text-xs">
                             Edit
                         </a>
 
-                        <form action="{{ route('categories.destroy',$category->id) }}"
+                        <form action="{{ route('admin.categories.destroy',$category->id) }}"
                               method="POST">
                             @csrf
                             @method('DELETE')

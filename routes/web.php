@@ -66,3 +66,22 @@ Route::get('/get-listings/{category}', function($categoryId){
 Route::post('/enquiry-store',
     [\App\Http\Controllers\Frontend\EnquiryController::class,'store']
 )->name('frontend.enquiry.store');
+
+
+Route::get('/enquiry/{slug}', [\App\Http\Controllers\Frontend\EnquiryController::class, 'create'])
+    ->name('enquiry.create');
+
+
+    Route::get('/category/{slug}', [\App\Http\Controllers\Frontend\CategoryPageController::class, 'index'])
+    ->name('category.page');
+
+    Route::get('/listing/{id}', [\App\Http\Controllers\Frontend\CategoryPageController::class, 'show'])
+    ->name('listing.detail');
+
+
+Route::get('/gallery', [\App\Http\Controllers\Frontend\GalleryController::class, 'index'])->name('gallery.index');
+
+Route::get('/gallery/{id}', [\App\Http\Controllers\Frontend\GalleryController::class, 'show'])->name('gallery.detail');
+
+Route::get('/contact', [\App\Http\Controllers\Frontend\ContactController::class, 'index'])->name('contact.page');
+Route::post('/contact', [\App\Http\Controllers\Frontend\ContactController::class, 'store'])->name('contact.store');

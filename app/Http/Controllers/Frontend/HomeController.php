@@ -4,11 +4,9 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\HeroSection;
+use App\Models\Category;
 use App\Models\Listing;
 use App\Models\Brand;
-use App\Models\Testimonial;
-use App\Models\Blog;
-use App\Models\Category;
 
 class HomeController extends Controller
 {
@@ -17,9 +15,52 @@ class HomeController extends Controller
     $hero = HeroSection::where('status', 1)->first();
     $categories = Category::where('status',1)->get();
 
+    // Default first category listings
+    $defaultCategory = $categories->first();
+
+    $listings = Listing::where('status',1)
+                ->where('category_id', $defaultCategory->id)
+                ->get();
+
+                // PACKAGE CATEGORY
+    $packageCategory = Category::where('slug', 'tour-package')
+        ->with(['subCategories.listings' => function ($q) {
+            $q->where('status', 1);
+        }])
+        ->first();
+
+         // Travel Booking Category
+    $travelCategory = Category::where('slug', 'travel-booking')->first();
+
+    $travelListings = Listing::where('status',1)
+        ->where('category_id', $travelCategory->id ?? 0)
+        ->latest()
+        ->take(6) // max 6 show
+        ->get();
+
+         // Room Booking Category
+    $roomCategory = Category::where('slug', 'room-booking')->first();
+
+    $roomListings = Listing::where('status',1)
+        ->where('category_id', $roomCategory->id ?? 0)
+        ->latest()
+        ->get();
+
+         $brands = Brand::where('status',1)
+        ->orderBy('sort_order')
+        ->get();
+
+
     return view('custom.index', compact(
         'hero',
-        'categories'
+        'categories',
+        'listings',
+        'packageCategory',
+        'travelListings',
+        'roomListings',
+        'brands'
+
+
     ));
 }
 }

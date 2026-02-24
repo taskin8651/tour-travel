@@ -42,4 +42,9 @@ public function itineraries()
 {
     return $this->hasMany(PackageItinerary::class)->orderBy('day_number');
 }
+
+public function listings()
+{
+    return $this->hasMany(Listing::class);
+}
 }

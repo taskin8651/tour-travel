@@ -8,7 +8,7 @@
             Edit Category
         </h2>
 
-        <form action="{{ route('categories.update',$category->id) }}"
+        <form action="{{ route('admin.categories.update',$category->id) }}"
               method="POST"
               class="space-y-5">
             @csrf
