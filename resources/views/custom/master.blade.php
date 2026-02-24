@@ -7,11 +7,21 @@
 <html lang="en">
 
 
-<!-- Mirrored from demo.egenslab.com//html/gofly/preview/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 22 Feb 2026 08:55:46 GMT -->
 <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
+    <meta charset="{{ config('app.charset', 'utf-8') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ $setting->meta_description ?? 'Dream Destination Sikkim' }}">
+    <meta name="keywords" content="{{ $setting->meta_keywords ?? 'Dream Destination Sikkim' }}">
+    <meta name="author" content="{{ $setting->site_name ?? 'Dream Destination Sikkim' }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="{{ $setting->site_name ?? 'Dream Destination Sikkim' }}">
+    <meta property="og:description" content="{{ $setting->meta_description ?? 'Dream Destination Sikkim' }}">
+    <meta property="og:image" content="{{ $setting->getFirstMediaUrl('logo') ?: asset('assets/img/logo.png') }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:type" content="website">
+    
 
     <!-- Bootstrap CSS -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
