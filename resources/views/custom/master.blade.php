@@ -85,7 +85,7 @@
                     </div>
                 </div>
                 <ul class="menu-list">
-                    <li class="menu-item-has-children active">
+                    <li class="menu-item-has-children {{ request()->routeIs('home') ? 'active' : '' }}">
                         <a href="{{ route('home') }}" class="drop-down">
                             Home
                         </a>
@@ -103,7 +103,7 @@
 
     @endphp
 
-    <li class="menu-item-has-children">
+    <li class="menu-item-has-children {{ request()->is('category/'.$category->slug.'*') ? 'active' : '' }}">
 
         <a href="{{ route('category.page', $category->slug) }}" class="drop-down">
             {{ $category->name }}
@@ -131,14 +131,14 @@
 
 @endforeach
                    
-                    <li>
+                    <li class="{{ request()->routeIs('gallery.index') ? 'active' : '' }}">
                         <a href="{{ route('gallery.index') }}">
                             Gallery
                         </a>
                         
                        
                     </li>
-                    <li><a href="{{ route('contact.page') }}">Contact</a></li>
+                    <li class="{{ request()->routeIs('contact.page') ? 'active' : '' }}"><a href="{{ route('contact.page') }}">Contact</a></li>
                 </ul>
                 
                

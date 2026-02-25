@@ -7,6 +7,10 @@ use App\Models\HeroSection;
 use App\Models\Category;
 use App\Models\Listing;
 use App\Models\Brand;
+use App\Models\Setting;
+use App\Models\Testimonial;
+use App\Models\Gallery;
+
 
 class HomeController extends Controller
 {
@@ -50,7 +54,11 @@ class HomeController extends Controller
         ->orderBy('sort_order')
         ->get();
 
-        $setting = \App\Models\Setting::first();
+        $setting = Setting::first();
+
+        $testimonials = Testimonial::where('status', 1)->get();
+
+        $galleryImages = Gallery::where('status', 1)->get();
 
 
     return view('custom.index', compact(
@@ -61,7 +69,9 @@ class HomeController extends Controller
         'travelListings',
         'roomListings',
         'brands',
-        'setting'
+        'setting',
+        'testimonials',
+        'galleryImages'
 
 
 

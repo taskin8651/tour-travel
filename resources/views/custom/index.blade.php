@@ -602,6 +602,68 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
     <!-- Home10 Hotel And Room Section End -->
 
+    <!-- Home3 Gallery Section Start -->
+<div class="home3-destination-section mb-100">
+    <div class="container">
+
+        <div class="row justify-content-center mb-50">
+            <div class="col-lg-8">
+                <div class="section-title text-center">
+                    <span>Our Travel Moments</span>
+                    <h2>Explore Our Gallery</h2>
+                    <p>A collection of beautiful travel memories captured during our amazing journeys.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="destination-slider-area">
+            <div class="swiper home3-destination-slider">
+                <div class="swiper-wrapper">
+
+                    @forelse($galleryImages as $gallery)
+                        @foreach($gallery->getMedia('gallery') as $image)
+                            <div class="swiper-slide">
+                                <div class="destination-card2 two">
+                                    <div class="destination-img">
+                                        <img src="{{ $image->getUrl() }}" alt="{{ $gallery->title }}">
+
+                                        <!-- Optional Fancybox Preview -->
+                                        <a data-fancybox="gallery" 
+                                           href="{{ $image->getUrl() }}" 
+                                           class="arrow">
+                                            <svg width="14" height="14" viewBox="0 0 14 14">
+                                                <path d="M1 13C5.9 8 13 1 13 1" stroke-width="1.5" stroke-linecap="round"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+
+                                    <div class="destination-content text-center">
+                                        <h5>{{ $gallery->title }}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @empty
+                        <div class="swiper-slide">
+                            <div class="text-center">
+                                <p>No gallery images available.</p>
+                            </div>
+                        </div>
+                    @endforelse
+
+                </div>
+            </div>
+
+            <!-- Slider Buttons -->
+            <div class="slider-btn-grp two">
+                <div class="slider-btn destination-slider-prev">‹</div>
+                <div class="slider-btn destination-slider-next">›</div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Home3 Gallery Section End -->
 
     <!-- home1 offer banner Section Start-->
     <div class="home1-offer-banner-section mb-100" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%), url(assets/img/home1/home1-offer-banner-bg.jpg);">
@@ -632,6 +694,91 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
     </div>
     <!-- home1 offer banner Section End-->
+
+    <!-- home1 testimonial Section Start-->
+<div class="home1-testimonial-section mb-100">
+    <div class="container">
+        <div class="row justify-content-center mb-50">
+            <div class="col-xl-6 col-lg-8">
+                <div class="section-title text-center">
+                    <h2>Hear It from Travelers</h2>
+                    <p>We go beyond just booking trips—we create unforgettable travel experiences that match your dreams!</p>
+                </div>
+            </div>
+        </div>  
+
+        <div class="row mb-40">
+            <div class="col-lg-12">
+                <div class="swiper home1-testimonial-slider">
+                    <div class="swiper-wrapper">
+
+                        @forelse($testimonials as $testimonial)
+                            <div class="swiper-slide">
+                                <div class="testimonial-card">
+                                    
+                                    <!-- Author Area -->
+                                    <div class="author-area">
+                                        <div class="author-img">
+                                            <img 
+                                                src="{{ $testimonial->getFirstMediaUrl('testimonial') ?: asset('assets/img/default-user.png') }}" 
+                                                alt="{{ $testimonial->name }}"
+                                            >
+                                        </div>
+                                        <div class="author-info">
+                                            <h5>{{ $testimonial->name }}</h5>
+                                            <span>{{ $testimonial->designation }}</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Rating -->
+                                    <ul class="rating-area">
+                                        @php
+                                            $fullStars = floor($testimonial->rating);
+                                            $halfStar = ($testimonial->rating - $fullStars) >= 0.5 ? 1 : 0;
+                                            $emptyStars = 5 - ($fullStars + $halfStar);
+                                        @endphp
+
+                                        @for($i = 0; $i < $fullStars; $i++)
+                                            <li><i class="bi bi-circle-fill"></i></li>
+                                        @endfor
+
+                                        @if($halfStar)
+                                            <li><i class="bi bi-circle-half"></i></li>
+                                        @endif
+
+                                        @for($i = 0; $i < $emptyStars; $i++)
+                                            <li><i class="bi bi-circle"></i></li>
+                                        @endfor
+                                    </ul>
+
+                                    <!-- Review -->
+                                    <div class="content">
+                                        <p>{{ $testimonial->review }}</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        @empty
+                            <div class="swiper-slide">
+                                <div class="testimonial-card text-center">
+                                    <p>No testimonials available.</p>
+                                </div>
+                            </div>
+                        @endforelse
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Static Review Section (Optional) -->
+        <div class="review-wrap text-center">
+            <p>Rated 4.5 out of 5 based on 2K reviews</p>
+        </div>
+
+    </div>
+</div>
+<!-- home1 testimonial Section End-->
 
      <!-- home1 partner area Section Start-->
    <div class="partner-section mb-100">
