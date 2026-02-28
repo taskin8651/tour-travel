@@ -349,7 +349,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     <!-- home1 destination Section Start-->
-    <div class="home1-destination-section mb-100">
+   <div class="home1-destination-section mb-100">
     <div class="container">
 
         <div class="row justify-content-center mb-60">
@@ -358,80 +358,96 @@ document.addEventListener("DOMContentLoaded", function () {
                     <h2>Featured Packages</h2>
                 </div>
 
-                {{-- Dynamic SubCategory Tabs --}}
-                <ul class="nav nav-pills" role="tablist">
+                {{-- NAV TABS --}}
+                <ul class="nav nav-pills justify-content-center" role="tablist">
 
-    {{-- ALL TAB --}}
-    <li class="nav-item">
-        <button class="nav-link active"
-                data-bs-toggle="pill"
-                data-bs-target="#sub-all"
-                type="button">
-            All
-        </button>
-    </li>
+                    {{-- ALL TAB --}}
+                    <li class="nav-item">
+                        <button class="nav-link active"
+                                data-bs-toggle="pill"
+                                data-bs-target="#sub-all"
+                                type="button">
+                            All
+                        </button>
+                    </li>
 
-    {{-- SUB CATEGORIES --}}
-    @foreach($packageCategory->subCategories as $sub)
-        <li class="nav-item">
-            <button class="nav-link"
-                    data-bs-toggle="pill"
-                    data-bs-target="#sub-{{ $sub->id }}"
-                    type="button">
-                {{ $sub->name }}
-            </button>
-        </li>
-    @endforeach
+                    {{-- SUB CATEGORY TABS --}}
+                    @foreach($packageCategory->subCategories as $sub)
+                        <li class="nav-item">
+                            <button class="nav-link"
+                                    data-bs-toggle="pill"
+                                    data-bs-target="#sub-{{ $sub->id }}"
+                                    type="button">
+                                {{ $sub->name }}
+                            </button>
+                        </li>
+                    @endforeach
 
                 </ul>
             </div>
         </div>
 
         {{-- TAB CONTENT --}}
-       <div class="tab-content">
+        <div class="tab-content">
 
-    {{-- ================= ALL TAB ================= --}}
-    <div class="tab-pane fade show active" id="sub-all">
+            {{-- ================= ALL TAB ================= --}}
+            <div class="tab-pane fade show active" id="sub-all">
 
-        <div class="swiper home1-destination-slider mb-40">
-            <div class="swiper-wrapper">
+                <div class="swiper home1-destination-slider mb-40">
+                    <div class="swiper-wrapper">
 
-                @foreach($packageCategory->subCategories as $sub)
-                    @foreach($sub->listings as $listing)
+                        @foreach($packageCategory->subCategories as $sub)
+                            @foreach($sub->listings as $listing)
+                                @include('partials.package-card', ['listing' => $listing])
+                            @endforeach
+                        @endforeach
 
-                        <div class="swiper-slide">
-                            <div class="destination-card">
+                    </div>
+                </div>
 
-                                <a href="{{ route('listing.detail', $listing->id) }}" class="destination-img">
-                                    <img src="{{ $listing->getFirstMediaUrl('main') ?: asset('assets/img/default.jpg') }}"
-                                         alt="{{ $listing->title }}">
-                                </a>
+            </div>
 
-                                <div class="destination-content">
+            {{-- ================= SUB CATEGORY TABS ================= --}}
+            @foreach($packageCategory->subCategories as $sub)
 
-                                    <a href="{{ route('listing.detail', $listing->id) }}" class="title-area">
-                                        {{ $listing->title }}
-                                    </a>
+                <div class="tab-pane fade" id="sub-{{ $sub->id }}">
 
-                                    <div class="content">
-                                        <p>
-                                            ₹{{ number_format($listing->price) }}
-                                            | {{ $listing->days }} Days
-                                        </p>
-                                    </div>
+                    <div class="swiper home1-destination-slider mb-40">
+                        <div class="swiper-wrapper">
 
-                                </div>
+                            @foreach($sub->listings as $listing)
+<div class="swiper-slide">
+    <div class="destination-card">
 
-                            </div>
-                        </div>
+        <a href="{{ route('listing.detail', $listing->id) }}" class="destination-img">
+            <img src="{{ $listing->getFirstMediaUrl('main') ?: asset('assets/img/default.jpg') }}"
+                 alt="{{ $listing->title }}">
+        </a>
 
-                    @endforeach
-                @endforeach
+        <div class="destination-content">
+            <a href="{{ route('listing.detail', $listing->id) }}" class="title-area">
+                {{ $listing->title }}
+            </a>
 
+            <div class="content">
+                <p>
+                    ₹{{ number_format($listing->price) }}
+                    | {{ $listing->days }} Days
+                </p>
             </div>
         </div>
 
     </div>
+</div>                            @endforeach
+
+                        </div>
+                    </div>
+
+                </div>
+
+            @endforeach
+
+        </div>
 
     </div>
 </div>
