@@ -48,9 +48,37 @@
 
         </div>
 
-        <div class="mt-5">
-            {{ $galleries->links() }}
-        </div>
+       <div class="mt-5 d-flex justify-content-center">
+    {{ $galleries->links('pagination::bootstrap-5') }}
+</div>
+
+<style>
+    /* Force Bootstrap Pagination */
+.pagination {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+}
+
+.page-item {
+    margin: 0 4px;
+}
+
+.page-link {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    color: #0d6efd;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+}
+
+.page-item.active .page-link {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    color: #fff;
+}
+</style>
 
     </div>
 </div>
