@@ -773,7 +773,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
             @endforeach
 
-        </div>
+        </div> 
     </div>
 </div>
 <!-- home1 offer package Section End-->

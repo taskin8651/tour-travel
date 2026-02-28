@@ -23,9 +23,7 @@ class HomeController extends Controller
     // Default first category listings
     $defaultCategory = $categories->first();
 
-    $listings = Listing::where('status',1)
-                ->where('category_id', $defaultCategory->id)
-                ->get();
+    $listings = Listing::where('status',1)->get();
 
                 // PACKAGE CATEGORY
     $packageCategory = Category::where('slug', 'tour-package')
