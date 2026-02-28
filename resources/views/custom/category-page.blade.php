@@ -107,10 +107,12 @@
                 @if($category->slug == 'room-booking')
                     <li>{{ $listing->rooms }} Rooms</li>
                     <li>{{ $listing->seats }} Guests</li>
+                    <li>{{ $listing->days }} Booking Days</li>
                 @endif
 
                 @if($category->slug == 'travel-booking')
                     <li>{{ $listing->days }} Days</li>
+                    <li>{{ $listing->seats }} Guests</li>
                 @endif
 
                 @if($category->slug == 'tour-package')
