@@ -398,7 +398,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         @foreach($packageCategory->subCategories as $sub)
                             @foreach($sub->listings as $listing)
-                                @include('partials.package-card', ['listing' => $listing])
+                               <div class="swiper-slide">
+    <div class="destination-card">
+
+        <a href="{{ route('listing.detail', $listing->id) }}" class="destination-img">
+            <img src="{{ $listing->getFirstMediaUrl('main') ?: asset('assets/img/default.jpg') }}"
+                 alt="{{ $listing->title }}">
+        </a>
+
+        <div class="destination-content">
+            <a href="{{ route('listing.detail', $listing->id) }}" class="title-area">
+                {{ $listing->title }}
+            </a>
+
+            <div class="content">
+                <p>
+                    ₹{{ number_format($listing->price) }}
+                    | {{ $listing->days }} Days
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
                             @endforeach
                         @endforeach
 
@@ -451,6 +473,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     </div>
 </div>
+
+<script>
+document.querySelectorAll('button[data-bs-toggle="pill"]').forEach(tab => {
+    tab.addEventListener('shown.bs.tab', function () {
+
+        document.querySelectorAll('.swiper').forEach(swiperEl => {
+            if (swiperEl.swiper) {
+                swiperEl.swiper.update();
+            }
+        });
+
+    });
+});
+</script>
 
 
 
