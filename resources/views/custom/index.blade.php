@@ -234,6 +234,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const listingSelect = document.getElementById('listingSelect');
     const allCategoryFields = document.querySelectorAll('.category-fields');
 
+    // Store original options once
+    if (!listingSelect.dataset.originalOptions) {
+        listingSelect.dataset.originalOptions = listingSelect.innerHTML;
+    }
+
     // ============================
     // Hide All Category Fields
     // ============================
@@ -265,27 +270,29 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // ============================
-    // Filter Listings (FIXED)
+    // Filter Listings (Rebuild Select)
     // ============================
     function filterListings(categoryId) {
 
-        const options = listingSelect.querySelectorAll('option');
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = `<select>${listingSelect.dataset.originalOptions}</select>`;
+        const allOptions = tempDiv.querySelectorAll('option');
 
-        options.forEach(option => {
+        listingSelect.innerHTML = '<option value="">Select Listing</option>';
+
+        allOptions.forEach(option => {
 
             if (!option.value) return;
 
             if (option.dataset.category == categoryId) {
-                option.style.display = "block";
-            } else {
-                option.style.display = "none";
+                listingSelect.appendChild(option.cloneNode(true));
             }
 
         });
 
         listingSelect.value = "";
 
-        // 🔥 DESTROY & REBUILD NICE SELECT
+        // 🔥 Reinitialize Nice Select properly
         if (typeof $ !== 'undefined') {
 
             if ($(listingSelect).next('.nice-select').length) {

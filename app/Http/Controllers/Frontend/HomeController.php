@@ -25,6 +25,7 @@ class HomeController extends Controller
 
     $listings = Listing::where('status',1)->get();
 
+
                 // PACKAGE CATEGORY
     $packageCategory = Category::where('slug', 'tour-package')
         ->with(['subCategories.listings' => function ($q) {
