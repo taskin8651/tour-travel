@@ -86,7 +86,9 @@
     || request()->is('admin/testimonials*')
     || request()->is('admin/blogs*')
     || request()->is('admin/blog-categories*')
-    || request()->is('admin/brands*') ? 'true' : 'false' }}
+    || request()->is('admin/brands*')
+    || request()->is('admin/services*')
+     ? 'true' : 'false' }}
 }">
 
     <button @click="open = !open"
@@ -157,6 +159,17 @@
                 : 'hover:bg-slate-800 hover:pl-4' }}">
             Brands
         </a>
+
+        {{-- Services --}}
+<a href="{{ route('admin.services.index') }}"
+   class="block px-3 py-2 rounded transition
+   {{ request()->is('admin/services*')
+        ? 'bg-slate-800 text-white'
+        : 'hover:bg-slate-800 hover:pl-4' }}">
+    Services
+</a>
+
+
 
     </div>
 </div>

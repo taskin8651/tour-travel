@@ -44,6 +44,8 @@ Route::post('settings', [App\Http\Controllers\Admin\SettingController::class,'up
 Route::resource('blog-categories', App\Http\Controllers\Admin\BlogCategoryController::class);
 Route::resource('blogs', App\Http\Controllers\Admin\BlogController::class);
  Route::resource('brands', App\Http\Controllers\Admin\BrandController::class);
+
+  Route::resource('services', \App\Http\Controllers\Admin\ServiceController::class);
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
     // Change password
@@ -85,3 +87,6 @@ Route::get('/gallery/{id}', [\App\Http\Controllers\Frontend\GalleryController::c
 
 Route::get('/contact', [\App\Http\Controllers\Frontend\ContactController::class, 'index'])->name('contact.page');
 Route::post('/contact', [\App\Http\Controllers\Frontend\ContactController::class, 'store'])->name('contact.store');
+
+Route::get('/service', [\App\Http\Controllers\Frontend\ServiceController::class, 'index'])->name('service.index');
+Route::get('/service/{slug}', [\App\Http\Controllers\Frontend\ServiceController::class, 'show'])->name('service.detail');

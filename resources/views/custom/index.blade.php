@@ -695,6 +695,90 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
     <!-- home1 offer banner Section End-->
 
+    <!-- home1 offer package Section Start-->
+<div class="home1-offer-package-section mb-100">
+    <div class="container">
+
+        <div class="row justify-content-center mb-50">
+            <div class="col-xl-6 col-lg-8">
+                <div class="section-title text-center">
+                    <h2>Last Minute Deals!</h2>
+                    <p>Explore our latest travel packages.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row gy-md-5 gy-4">
+
+            @foreach($services as $service)
+            <div class="col-lg-4 col-md-6">
+                <div class="package-card">
+
+                    <!-- Image Slider -->
+                    <div class="package-img-wrap">
+                        <div class="swiper package-card-img-slider">
+                            <div class="swiper-wrapper">
+
+                                {{-- Featured Image --}}
+                                @if($service->getFirstMediaUrl('featured_image'))
+                                <div class="swiper-slide">
+                                    <a href="{{ route('service.detail', $service->slug) }}" class="package-img">
+                                        <img src="{{ $service->getFirstMediaUrl('featured_image') }}"
+                                             alt="{{ $service->title }}">
+                                    </a>
+                                </div>
+                                @endif
+
+                                {{-- Gallery Images --}}
+                                @foreach($service->getMedia('gallery') as $media)
+                                <div class="swiper-slide">
+                                    <a href="{{ route('service.detail', $service->slug) }}" class="package-img">
+                                        <img src="{{ $media->getUrl() }}" alt="">
+                                    </a>
+                                </div>
+                                @endforeach
+
+                            </div>
+                        </div>
+
+                        <div class="batch">
+                            <span>Hot Deal</span>
+                        </div>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="package-content">
+
+                        <h5>
+                            <a href="{{ route('service.detail', $service->slug) }}">
+                                {{ $service->title }}
+                            </a>
+                        </h5>
+
+                        <p>
+                            {{ \Illuminate\Support\Str::limit($service->short_description, 80) }}
+                        </p>
+
+                        <div class="btn-and-price-area">
+                            <a href="{{ route('service.detail', $service->slug) }}"
+                               class="primary-btn1">
+                                <span>View Details</span>
+                                <span>View Details</span>
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            @endforeach
+
+        </div>
+    </div>
+</div>
+<!-- home1 offer package Section End-->
+
+
     <!-- home1 testimonial Section Start-->
 <div class="home1-testimonial-section mb-100">
     <div class="container">

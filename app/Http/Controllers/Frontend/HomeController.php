@@ -10,6 +10,7 @@ use App\Models\Brand;
 use App\Models\Setting;
 use App\Models\Testimonial;
 use App\Models\Gallery;
+use App\Models\Service;
 
 
 class HomeController extends Controller
@@ -60,6 +61,13 @@ class HomeController extends Controller
 
         $galleryImages = Gallery::where('status', 1)->get();
 
+    $services = Service::where('status', 1)
+                        ->latest()
+                        ->take(6)
+                        ->get();
+
+        
+
 
     return view('custom.index', compact(
         'hero',
@@ -71,7 +79,8 @@ class HomeController extends Controller
         'brands',
         'setting',
         'testimonials',
-        'galleryImages'
+        'galleryImages',
+        'services'
 
 
 
