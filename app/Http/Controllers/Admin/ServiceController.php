@@ -26,9 +26,9 @@ class ServiceController extends Controller
             'title' => 'required|string|max:255',
             'short_description' => 'required|string',
             'description' => 'required|string',
-            'featured_image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
-            'banner_image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
-            'gallery.*' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'featured_image' => 'nullable|image|mimes:jpg,jpeg,png,webp',
+            'banner_image' => 'nullable|image|mimes:jpg,jpeg,png,webp',
+            'gallery.*' => 'nullable|image|mimes:jpg,jpeg,png,webp',
         ]);
 
         // Unique Slug Generate
@@ -82,9 +82,9 @@ class ServiceController extends Controller
             'title' => 'required|string|max:255',
             'short_description' => 'required|string',
             'description' => 'required|string',
-            'featured_image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
-            'banner_image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
-            'gallery.*' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'featured_image' => 'nullable|image|mimes:jpg,jpeg,png,webp',
+            'banner_image' => 'nullable|image|mimes:jpg,jpeg,png,webp',
+            'gallery.*' => 'nullable|image|mimes:jpg,jpeg,png,webp',
         ]);
 
         // Unique Slug Update
