@@ -360,69 +360,78 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 {{-- Dynamic SubCategory Tabs --}}
                 <ul class="nav nav-pills" role="tablist">
-                    @foreach($packageCategory->subCategories as $key => $sub)
-                        <li class="nav-item">
-                            <button class="nav-link {{ $key == 0 ? 'active' : '' }}"
-                                    data-bs-toggle="pill"
-                                    data-bs-target="#sub-{{ $sub->id }}"
-                                    type="button">
-                                {{ $sub->name }}
-                            </button>
-                        </li>
-                    @endforeach
+
+    {{-- ALL TAB --}}
+    <li class="nav-item">
+        <button class="nav-link active"
+                data-bs-toggle="pill"
+                data-bs-target="#sub-all"
+                type="button">
+            All
+        </button>
+    </li>
+
+    {{-- SUB CATEGORIES --}}
+    @foreach($packageCategory->subCategories as $sub)
+        <li class="nav-item">
+            <button class="nav-link"
+                    data-bs-toggle="pill"
+                    data-bs-target="#sub-{{ $sub->id }}"
+                    type="button">
+                {{ $sub->name }}
+            </button>
+        </li>
+    @endforeach
+
                 </ul>
             </div>
         </div>
 
         {{-- TAB CONTENT --}}
-        <div class="tab-content">
+       <div class="tab-content">
 
-            @foreach($packageCategory->subCategories as $key => $sub)
+    {{-- ================= ALL TAB ================= --}}
+    <div class="tab-pane fade show active" id="sub-all">
 
-                <div class="tab-pane fade {{ $key == 0 ? 'show active' : '' }}"
-                     id="sub-{{ $sub->id }}">
+        <div class="swiper home1-destination-slider mb-40">
+            <div class="swiper-wrapper">
 
-                    <div class="swiper home1-destination-slider mb-40">
-                        <div class="swiper-wrapper">
+                @foreach($packageCategory->subCategories as $sub)
+                    @foreach($sub->listings as $listing)
 
-                            @foreach($sub->listings as $listing)
+                        <div class="swiper-slide">
+                            <div class="destination-card">
 
-                                <div class="swiper-slide">
-                                    <div class="destination-card">
+                                <a href="{{ route('listing.detail', $listing->id) }}" class="destination-img">
+                                    <img src="{{ $listing->getFirstMediaUrl('main') ?: asset('assets/img/default.jpg') }}"
+                                         alt="{{ $listing->title }}">
+                                </a>
 
-                                        <a href="{{ route('listing.detail', $listing->id) }}" class="destination-img">
-                                            <img src="{{ $listing->getFirstMediaUrl('main') ?? asset('assets/img/default.jpg') }}"
-                                                 alt="{{ $listing->title }}">
-                                        </a>
+                                <div class="destination-content">
 
-                                        <div class="destination-content">
+                                    <a href="{{ route('listing.detail', $listing->id) }}" class="title-area">
+                                        {{ $listing->title }}
+                                    </a>
 
-                                            <a href="{{ route('listing.detail', $listing->id) }}" class="title-area">
-                                                {{ $listing->title }}
-                                            </a>
-
-                                            <div class="content">
-                                                <p>
-                                                    ₹{{ number_format($listing->price) }}
-                                                    | {{ $listing->days }} Days
-                                                </p>
-                                            </div>
-
-                                        </div>
-
+                                    <div class="content">
+                                        <p>
+                                            ₹{{ number_format($listing->price) }}
+                                            | {{ $listing->days }} Days
+                                        </p>
                                     </div>
+
                                 </div>
 
-                            @endforeach
-
+                            </div>
                         </div>
-                    </div>
 
-                </div>
+                    @endforeach
+                @endforeach
 
-            @endforeach
-
+            </div>
         </div>
+
+    </div>
 
     </div>
 </div>
