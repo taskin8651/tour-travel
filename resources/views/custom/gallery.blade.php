@@ -48,11 +48,9 @@
 
         </div>
 
-       @if ($galleries->hasPages())
-    <div class="mt-8 flex justify-center">
-        {{ $galleries->onEachSide(1)->links() }}
-    </div>
-@endif
+        <div class="mt-5">
+            {{ $galleries->links() }}
+        </div>
 
     </div>
 </div>
