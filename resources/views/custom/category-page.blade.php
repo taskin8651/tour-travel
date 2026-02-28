@@ -113,6 +113,13 @@
                     <li>{{ $listing->days }} Days</li>
                 @endif
 
+                @if($category->slug == 'tour-package')
+                    <li>{{ $listing->days }} Days</li>
+                    <li>{{ $listing->seats }} Guests</li>
+                    <li>{{ $listing->rooms }} Rooms</li>
+                    
+                @endif
+
             </ul>
 
             <div class="btn-and-price-area">
