@@ -68,7 +68,7 @@ class SubCategoryController extends Controller
     {
         $sub_category->delete();
 
-        return redirect()->route('sub-categories.index')
+        return redirect()->route('admin.sub-categories.index')
             ->with('success','Sub Category Deleted Successfully');
     }
 }

@@ -13,15 +13,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ $setting->meta_description ?? 'Dream Destination Sikkim' }}">
     <meta name="keywords" content="{{ $setting->meta_keywords ?? 'Dream Destination Sikkim' }}">
-    <meta name="author" content="{{ $setting->site_name ?? 'Dream Destination Sikkim' }}">
+    <meta name="author" content="{{ $setting->meta_title ?? 'Dream Destination Sikkim' }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="{{ $setting->site_name ?? 'Dream Destination Sikkim' }}">
+    <meta property="og:title" content="{{ $setting->meta_title ?? 'Dream Destination Sikkim' }}">
     <meta property="og:description" content="{{ $setting->meta_description ?? 'Dream Destination Sikkim' }}">
     <meta property="og:image" content="{{ $setting->getFirstMediaUrl('logo') ?: asset('assets/img/logo.png') }}">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:type" content="website">
     
+    {{ $setting->google_analytics ?? '' }}
 
     <!-- Bootstrap CSS -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
