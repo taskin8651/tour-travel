@@ -22,8 +22,7 @@
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:type" content="website">
     
-    {{ $setting->google_analytics ?? '' }}
-
+{!! $setting->google_analytics ?? '' !!}
     <!-- Bootstrap CSS -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/jquery-ui.css') }}" rel="stylesheet">
