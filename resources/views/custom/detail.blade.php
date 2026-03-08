@@ -56,8 +56,7 @@
                        <div class="package-info-wrap mb-60">
     <h2>Experience Overview</h2>
 
-    <p>{{ $listing->description }}</p>
-
+<p>{!! nl2br(e($listing->description)) !!}</p>
     <ul class="package-info-list">
 
         {{-- Location --}}
