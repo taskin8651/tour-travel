@@ -57,7 +57,7 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 
     }
 });
 
-// Route::get('/', [App\Http\Controllers\Frontend\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\Frontend\HomeController::class, 'index'])->name('home');
 Route::get('/get-listings/{category}', function($categoryId){
     return \App\Models\Listing::where('category_id',$categoryId)
         ->where('status',1)
