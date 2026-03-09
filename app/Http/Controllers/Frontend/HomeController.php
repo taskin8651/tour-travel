@@ -68,7 +68,7 @@ class HomeController extends Controller
         
 
 
-    return view('custom.error', compact(
+    return view('custom.index', compact(
         'hero',
         'categories',
         'listings',
