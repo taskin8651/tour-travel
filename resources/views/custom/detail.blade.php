@@ -116,18 +116,28 @@
         @endif
 
 
-        {{-- Days (Travel Package) --}}
-        @if($listing->days)
-        <li>
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
-                <rect x="3" y="4" width="18" height="18" stroke="currentColor" stroke-width="2"/>
-            </svg>
-            <div class="content">
-                <span>Duration</span>
-                <strong>{{ $listing->days }} Days</strong>
-            </div>
-        </li>
-        @endif
+        {{-- Duration (Tour Package) --}}
+@if($listing->days || $listing->rooms)
+
+<li>
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+        <rect x="3" y="4" width="18" height="18" stroke="currentColor" stroke-width="2"/>
+    </svg>
+
+    <div class="content">
+        <span>Duration</span>
+
+        <strong>
+            {{ $listing->days }} Days 
+            @if($listing->rooms)
+                / {{ $listing->rooms }} Nights
+            @endif
+        </strong>
+
+    </div>
+</li>
+
+@endif
 
 
         {{-- Price --}}
