@@ -14,9 +14,9 @@ class ServiceController extends Controller
     return view('custom.service', compact('services'));
 }
 
-    public function show($id)
+    public function show($slug)
     {
-        $service = Service::where('id', $id)->where('status', 1)->firstOrFail();
+        $service = Service::where('slug', $slug)->where('status', 1)->firstOrFail();
         return view('custom.service-detail', compact('service'));
     }
 }
