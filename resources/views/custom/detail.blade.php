@@ -87,18 +87,7 @@
         @endif
 
 
-        {{-- Rooms (Room Booking) --}}
-        @if($listing->rooms)
-        <li>
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
-                <path d="M3 10h18v7H3z" stroke="currentColor" stroke-width="2"/>
-            </svg>
-            <div class="content">
-                <span>Rooms</span>
-                <strong>{{ $listing->rooms }} Rooms</strong>
-            </div>
-        </li>
-        @endif
+       
 
 
         {{-- Guests --}}

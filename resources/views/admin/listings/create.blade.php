@@ -86,7 +86,7 @@
 {{-- Rooms --}}
 <div class="col-span-12 md:col-span-6">
     <label class="block text-sm font-medium text-gray-700 mb-2">
-        Rooms
+        Nights
     </label>
     <input type="number" name="rooms"
         class="w-full border border-gray-300 rounded-xl px-4 py-2

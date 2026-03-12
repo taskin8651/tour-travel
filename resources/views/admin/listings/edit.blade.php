@@ -76,7 +76,7 @@ focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition">
 
 {{-- Rooms --}}
 <div class="col-span-12 md:col-span-6">
-<label class="block text-sm font-medium text-gray-700 mb-2">Rooms</label>
+<label class="block text-sm font-medium text-gray-700 mb-2">Nights</label>
 <input type="number" name="rooms"
 value="{{ $listing->rooms }}"
 class="w-full border border-gray-300 rounded-xl px-4 py-2 shadow-sm
