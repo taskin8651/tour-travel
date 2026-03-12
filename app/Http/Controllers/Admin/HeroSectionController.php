@@ -27,7 +27,7 @@ class HeroSectionController extends Controller
             'button_text' => 'nullable|string|max:100',
             'button_link' => 'nullable|string|max:255',
             'status'      => 'required|boolean',
-            'media'       => 'required|image|mimes:jpg,jpeg,png,webp|max:2048'
+            'media'       => 'required|image|mimes:jpg,jpeg,png,webp'
         ]);
 
         $hero = HeroSection::create([
@@ -61,7 +61,7 @@ class HeroSectionController extends Controller
             'button_text' => 'nullable|string|max:100',
             'button_link' => 'nullable|string|max:255',
             'status'      => 'required|boolean',
-            'media'       => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048'
+            'media'       => 'nullable|image|mimes:jpg,jpeg,png,webp'
         ]);
 
         $hero_section->update([
