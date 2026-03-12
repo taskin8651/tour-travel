@@ -91,4 +91,3 @@ Route::post('/contact', [\App\Http\Controllers\Frontend\ContactController::class
 Route::get('/service', [\App\Http\Controllers\Frontend\ServiceController::class, 'index'])->name('service.index');
 Route::get('/service/{slug}', [\App\Http\Controllers\Frontend\ServiceController::class, 'show'])->name('service.detail');
 
-Route::view('/', 'custom.error');
