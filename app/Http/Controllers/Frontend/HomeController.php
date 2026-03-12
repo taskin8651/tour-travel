@@ -60,10 +60,10 @@ class HomeController extends Controller
 
         $galleryImages = Gallery::where('status', 1)->get();
 
-    $services = Service::where('status', 1)
-                        ->latest()
-                        ->take(6)
-                        ->get();
+   $services = Service::where('status', 1)
+            ->orderBy('created_at', 'asc')
+            ->take(6)
+            ->get();
 
         
 
