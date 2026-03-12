@@ -104,23 +104,51 @@
 
             <ul class="hotel-feature-list">
 
-                @if($category->slug == 'room-booking')
-                    <li>{{ $listing->rooms }} Rooms</li>
-                    <li>{{ $listing->seats }} Guests</li>
-                    <li>{{ $listing->days }} Booking Days</li>
-                @endif
+               @if($category->slug == 'room-booking')
 
-                @if($category->slug == 'travel-booking')
-                    <li>{{ $listing->days }} Days</li>
-                    <li>{{ $listing->seats }} Guests</li>
-                @endif
+    @if($listing->rooms)
+        <li>{{ $listing->rooms }} Rooms</li>
+    @endif
 
-                @if($category->slug == 'tour-package')
-                    <li>{{ $listing->days }} Days</li>
-                    <li>{{ $listing->rooms }} Nights</li>
-                    <li>{{ $listing->seats }} Guests</li>
-                    
-                @endif
+    @if($listing->seats)
+        <li>{{ $listing->seats }} Guests</li>
+    @endif
+
+    @if($listing->days)
+        <li>{{ $listing->days }} Booking Days</li>
+    @endif
+
+@endif
+
+
+@if($category->slug == 'travel-booking')
+
+    @if($listing->days)
+        <li>{{ $listing->days }} Days</li>
+    @endif
+
+    @if($listing->seats)
+        <li>{{ $listing->seats }} Guests</li>
+    @endif
+
+@endif
+
+
+@if($category->slug == 'tour-package')
+
+    @if($listing->days)
+        <li>{{ $listing->days }} Days</li>
+    @endif
+
+    @if($listing->rooms)
+        <li>{{ $listing->rooms }} Nights</li>
+    @endif
+
+    @if($listing->seats)
+        <li>{{ $listing->seats }} Guests</li>
+    @endif
+
+@endif
 
             </ul>
 
