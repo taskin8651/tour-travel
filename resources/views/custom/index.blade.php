@@ -410,7 +410,7 @@ font-size:16px;
 
 
     <!-- home1 destination Section Start-->
-  <div class="home1-destination-section mb-100">
+ <div class="home1-destination-section mb-100">
 <div class="container">
 
 <div class="row justify-content-center mb-60">
@@ -419,108 +419,62 @@ font-size:16px;
 <h2>Popular Sikkim Tour Packages</h2>
 <p>Discover the best Sikkim packages with amazing prices and special offers</p>
 </div>
+</div>
+</div>
 
-<ul class="nav nav-pills justify-content-center" role="tablist">
+<div class="swiper package-slider">
 
-<li class="nav-item">
-<button class="nav-link active"
-data-bs-toggle="pill"
-data-bs-target="#sub-all"
-type="button">
-All
-</button>
-</li>
+<div class="swiper-wrapper">
 
 @foreach($packageCategory->subCategories as $sub)
-<li class="nav-item">
-<button class="nav-link"
-data-bs-toggle="pill"
-data-bs-target="#sub-{{ $sub->id }}"
-type="button">
-{{ $sub->name }}
-</button>
-</li>
-@endforeach
+@foreach($sub->listings as $listing)
+
+<div class="swiper-slide">
+
+<div class="hotel-card">
+
+<div class="hotel-img-wrap">
+<a href="{{ route('listing.detail',$listing->id) }}">
+<img src="{{ $listing->getFirstMediaUrl('main') ?: asset('assets/img/default.jpg') }}">
+</a>
+</div>
+
+<div class="hotel-content">
+
+<h5>{{ $listing->title }}</h5>
+
+<div class="location-area">
+<span>{{ $listing->location }}</span>
+</div>
+
+<ul class="hotel-feature-list">
+
+@if($listing->days)
+<li>{{ $listing->days }} Days</li>
+@endif
+
+@if($listing->rooms)
+<li>{{ $listing->rooms }} Nights</li>
+@endif
+
+@if($listing->seats)
+<li>{{ $listing->seats }} Guests</li>
+@endif
 
 </ul>
-</div>
-</div>
 
+<div class="btn-and-price-area">
 
-<div class="tab-content">
-
-{{-- ALL TAB --}}
-<div class="tab-pane fade show active" id="sub-all">
-
-<div class="row g-4">
-
-@foreach($packageCategory->subCategories as $sub)
-@foreach($sub->listings as $listing)
-
-<div class="col-lg-4 col-md-6">
-<div class="destination-card">
-
-<a href="{{ route('listing.detail',$listing->id) }}" class="destination-img">
-<img src="{{ $listing->getFirstMediaUrl('main') ?: asset('assets/img/default.jpg') }}">
+<a href="{{ route('enquiry.create',$listing->category->slug) }}" class="primary-btn1">
+<span>Book Now</span>
+<span>Book Now</span>
 </a>
 
-<div class="destination-content">
-
-<a href="{{ route('listing.detail',$listing->id) }}" class="title-area">
-{{ $listing->title }}
-</a>
-
-<div class="content">
-<p>
-₹{{ number_format($listing->price) }}
-@if($listing->days)
-| {{ $listing->days }} Days
-@endif
-</p>
+<div class="price-area">
+<h6>Per Person</h6>
+<span>₹{{ number_format($listing->price) }}</span>
 </div>
 
-</div>
-</div>
-</div>
-
-@endforeach
-@endforeach
-
-</div>
-</div>
-
-
-{{-- SUB CATEGORY TABS --}}
-@foreach($packageCategory->subCategories as $sub)
-
-<div class="tab-pane fade" id="sub-{{ $sub->id }}">
-
-<div class="row g-4">
-
-@foreach($sub->listings as $listing)
-
-<div class="col-lg-4 col-md-6">
-
-<div class="destination-card">
-
-<a href="{{ route('listing.detail',$listing->id) }}" class="destination-img">
-<img src="{{ $listing->getFirstMediaUrl('main') ?: asset('assets/img/default.jpg') }}">
-</a>
-
-<div class="destination-content">
-
-<a href="{{ route('listing.detail',$listing->id) }}" class="title-area">
-{{ $listing->title }}
-</a>
-
-<div class="content">
-<p>
-₹{{ number_format($listing->price) }}
-
-@if($listing->days)
-| {{ $listing->days }} Days
-@endif
-</p>
 </div>
 
 </div>
@@ -529,16 +483,49 @@ type="button">
 </div>
 
 @endforeach
-
-</div>
-</div>
-
 @endforeach
 
 </div>
 
 </div>
+
 </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+new Swiper(".package-slider", {
+
+slidesPerView: 3,
+spaceBetween: 30,
+loop: true,
+
+autoplay:{
+delay:3000,
+disableOnInteraction:false,
+},
+
+breakpoints:{
+
+0:{
+slidesPerView:1
+},
+
+768:{
+slidesPerView:2
+},
+
+992:{
+slidesPerView:3
+}
+
+}
+
+});
+
+});
+</script>
 
 
  <!-- home1 travel package Section Start-->
