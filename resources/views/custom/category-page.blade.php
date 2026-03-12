@@ -117,8 +117,8 @@
 
                 @if($category->slug == 'tour-package')
                     <li>{{ $listing->days }} Days</li>
+                    <li>{{ $listing->rooms }} Nights</li>
                     <li>{{ $listing->seats }} Guests</li>
-                    <li>{{ $listing->rooms }} Rooms</li>
                     
                 @endif
 
