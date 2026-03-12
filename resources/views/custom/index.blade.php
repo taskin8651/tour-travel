@@ -880,7 +880,7 @@ document.querySelectorAll('button[data-bs-toggle="pill"]').forEach(tab => {
                     <div class="package-content">
 
                         <h5>
-                            <a href="{{ route('service.detail', $service->slug) }}">
+                            <a href="{{ route('service.detail', $service->id) }}">
                                 {{ $service->title }}
                             </a>
                         </h5>
@@ -890,7 +890,7 @@ document.querySelectorAll('button[data-bs-toggle="pill"]').forEach(tab => {
                         </p>
 
                         <div class="btn-and-price-area">
-                            <a href="{{ route('service.detail', $service->slug) }}"
+                            <a href="{{ route('service.detail', $service->id) }}"
                                class="primary-btn1">
                                 <span>View Details</span>
                                 <span>View Details</span>

@@ -89,5 +89,5 @@ Route::get('/contact', [\App\Http\Controllers\Frontend\ContactController::class,
 Route::post('/contact', [\App\Http\Controllers\Frontend\ContactController::class, 'store'])->name('contact.store');
 
 Route::get('/service', [\App\Http\Controllers\Frontend\ServiceController::class, 'index'])->name('service.index');
-Route::get('/service/{slug}', [\App\Http\Controllers\Frontend\ServiceController::class, 'show'])->name('service.detail');
+Route::get('/service/{id}', [\App\Http\Controllers\Frontend\ServiceController::class, 'show'])->name('service.detail');
 
