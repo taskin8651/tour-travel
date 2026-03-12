@@ -410,146 +410,135 @@ font-size:16px;
 
 
     <!-- home1 destination Section Start-->
-   <div class="home1-destination-section mb-100">
-    <div class="container">
+  <div class="home1-destination-section mb-100">
+<div class="container">
 
-        <div class="row justify-content-center mb-60">
-            <div class="col-lg-10">
-                <div class="section-title text-center">
-                    <h2>Popular Sikkim Tour Packages</h2>
-                    <p>Discover the best Sikkim packages with amazing prices and special offers</p>
-                </div>
-
-                {{-- NAV TABS --}}
-                <ul class="nav nav-pills justify-content-center" role="tablist">
-
-                    {{-- ALL TAB --}}
-                    <li class="nav-item">
-                        <button class="nav-link active"
-                                data-bs-toggle="pill"
-                                data-bs-target="#sub-all"
-                                type="button">
-                            All
-                        </button>
-                    </li>
-
-                    {{-- SUB CATEGORY TABS --}}
-                    @foreach($packageCategory->subCategories as $sub)
-                        <li class="nav-item">
-                            <button class="nav-link"
-                                    data-bs-toggle="pill"
-                                    data-bs-target="#sub-{{ $sub->id }}"
-                                    type="button">
-                                {{ $sub->name }}
-                            </button>
-                        </li>
-                    @endforeach
-
-                </ul>
-            </div>
-        </div>
-
-        {{-- TAB CONTENT --}}
-        <div class="tab-content">
-
-            {{-- ================= ALL TAB ================= --}}
-            <div class="tab-pane fade show active" id="sub-all">
-
-                <div class="swiper home1-destination-slider mb-40">
-                    <div class="swiper-wrapper">
-
-                        @foreach($packageCategory->subCategories as $sub)
-                            @foreach($sub->listings as $listing)
-                               <div class="swiper-slide">
-    <div class="destination-card">
-
-        <a href="{{ route('listing.detail', $listing->id) }}" class="destination-img">
-            <img src="{{ $listing->getFirstMediaUrl('main') ?: asset('assets/img/default.jpg') }}"
-                 alt="{{ $listing->title }}">
-        </a>
-
-        <div class="destination-content">
-            <a href="{{ route('listing.detail', $listing->id) }}" class="title-area">
-                {{ $listing->title }}
-            </a>
-
-            <div class="content">
-                <p>
-                    ₹{{ number_format($listing->price) }}
-                    | {{ $listing->days }} Days
-                </p>
-            </div>
-        </div>
-
-    </div>
-</div>
-                            @endforeach
-                        @endforeach
-
-                    </div>
-                </div>
-
-            </div>
-
-            {{-- ================= SUB CATEGORY TABS ================= --}}
-            @foreach($packageCategory->subCategories as $sub)
-
-                <div class="tab-pane fade" id="sub-{{ $sub->id }}">
-
-                    <div class="swiper home1-destination-slider mb-40">
-                        <div class="swiper-wrapper">
-
-                            @foreach($sub->listings as $listing)
-<div class="swiper-slide">
-    <div class="destination-card">
-
-        <a href="{{ route('listing.detail', $listing->id) }}" class="destination-img">
-            <img src="{{ $listing->getFirstMediaUrl('main') ?: asset('assets/img/default.jpg') }}"
-                 alt="{{ $listing->title }}">
-        </a>
-
-        <div class="destination-content">
-            <a href="{{ route('listing.detail', $listing->id) }}" class="title-area">
-                {{ $listing->title }}
-            </a>
-
-            <div class="content">
-                <p>
-                    ₹{{ number_format($listing->price) }}
-                    | {{ $listing->days }} Days
-                </p>
-            </div>
-        </div>
-
-    </div>
-</div>                            @endforeach
-
-                        </div>
-                    </div>
-
-                </div>
-
-            @endforeach
-
-        </div>
-
-    </div>
+<div class="row justify-content-center mb-60">
+<div class="col-lg-10">
+<div class="section-title text-center">
+<h2>Popular Sikkim Tour Packages</h2>
+<p>Discover the best Sikkim packages with amazing prices and special offers</p>
 </div>
 
-<script>
-document.querySelectorAll('button[data-bs-toggle="pill"]').forEach(tab => {
-    tab.addEventListener('shown.bs.tab', function () {
+<ul class="nav nav-pills justify-content-center" role="tablist">
 
-        document.querySelectorAll('.swiper').forEach(swiperEl => {
-            if (swiperEl.swiper) {
-                swiperEl.swiper.update();
-            }
-        });
+<li class="nav-item">
+<button class="nav-link active"
+data-bs-toggle="pill"
+data-bs-target="#sub-all"
+type="button">
+All
+</button>
+</li>
 
-    });
-});
-</script>
+@foreach($packageCategory->subCategories as $sub)
+<li class="nav-item">
+<button class="nav-link"
+data-bs-toggle="pill"
+data-bs-target="#sub-{{ $sub->id }}"
+type="button">
+{{ $sub->name }}
+</button>
+</li>
+@endforeach
 
+</ul>
+</div>
+</div>
+
+
+<div class="tab-content">
+
+{{-- ALL TAB --}}
+<div class="tab-pane fade show active" id="sub-all">
+
+<div class="row g-4">
+
+@foreach($packageCategory->subCategories as $sub)
+@foreach($sub->listings as $listing)
+
+<div class="col-lg-4 col-md-6">
+<div class="destination-card">
+
+<a href="{{ route('listing.detail',$listing->id) }}" class="destination-img">
+<img src="{{ $listing->getFirstMediaUrl('main') ?: asset('assets/img/default.jpg') }}">
+</a>
+
+<div class="destination-content">
+
+<a href="{{ route('listing.detail',$listing->id) }}" class="title-area">
+{{ $listing->title }}
+</a>
+
+<div class="content">
+<p>
+₹{{ number_format($listing->price) }}
+@if($listing->days)
+| {{ $listing->days }} Days
+@endif
+</p>
+</div>
+
+</div>
+</div>
+</div>
+
+@endforeach
+@endforeach
+
+</div>
+</div>
+
+
+{{-- SUB CATEGORY TABS --}}
+@foreach($packageCategory->subCategories as $sub)
+
+<div class="tab-pane fade" id="sub-{{ $sub->id }}">
+
+<div class="row g-4">
+
+@foreach($sub->listings as $listing)
+
+<div class="col-lg-4 col-md-6">
+
+<div class="destination-card">
+
+<a href="{{ route('listing.detail',$listing->id) }}" class="destination-img">
+<img src="{{ $listing->getFirstMediaUrl('main') ?: asset('assets/img/default.jpg') }}">
+</a>
+
+<div class="destination-content">
+
+<a href="{{ route('listing.detail',$listing->id) }}" class="title-area">
+{{ $listing->title }}
+</a>
+
+<div class="content">
+<p>
+₹{{ number_format($listing->price) }}
+
+@if($listing->days)
+| {{ $listing->days }} Days
+@endif
+</p>
+</div>
+
+</div>
+</div>
+
+</div>
+
+@endforeach
+
+</div>
+</div>
+
+@endforeach
+
+</div>
+
+</div>
+</div>
 
 
  <!-- home1 travel package Section Start-->
