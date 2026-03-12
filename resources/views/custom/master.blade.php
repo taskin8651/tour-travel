@@ -78,7 +78,7 @@
             <div class="main-menu">
                 <div class="mobile-logo-area d-lg-none d-flex align-items-center justify-content-between">
                     <a href="{{ route('home') }}" class="mobile-logo-wrap">
-                        <img src="{{ asset('assets/img/header-logo.svg') }}" alt="">
+                        <img src="{{ $setting->getFirstMediaUrl('logo') ?: asset('assets/img/header-logo.svg') }}" alt="{{ $setting->site_name }}">
                     </a>
                     <div class="menu-close-btn">
                         <i class="bi bi-x"></i>

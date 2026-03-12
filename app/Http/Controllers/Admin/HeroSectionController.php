@@ -23,25 +23,20 @@ class HeroSectionController extends Controller
     {
         $request->validate([
             'title'       => 'required|string|max:255',
-            'subtitle'    => 'nullable|string|max:255',
+            'subtitle'    => 'nullable|string',
             'button_text' => 'nullable|string|max:100',
             'button_link' => 'nullable|string|max:255',
             'status'      => 'required|boolean',
-            'media'       => 'required|file|mimes:jpg,jpeg,png,webp,mp4|max:51200' // 50MB max
+            'media'       => 'required|image|mimes:jpg,jpeg,png,webp|max:2048'
         ]);
 
-        // Optional: Only One Active Hero
-        if ($request->status == 1) {
-            HeroSection::where('status', 1)->update(['status' => 0]);
-        }
-
-        $hero = HeroSection::create($request->only([
-            'title',
-            'subtitle',
-            'button_text',
-            'button_link',
-            'status'
-        ]));
+        $hero = HeroSection::create([
+            'title'       => $request->title,
+            'subtitle'    => $request->subtitle,
+            'button_text' => $request->button_text,
+            'button_link' => $request->button_link,
+            'status'      => $request->status,
+        ]);
 
         if ($request->hasFile('media')) {
             $hero->addMediaFromRequest('media')
@@ -62,29 +57,24 @@ class HeroSectionController extends Controller
     {
         $request->validate([
             'title'       => 'required|string|max:255',
-            'subtitle'    => 'nullable|string|max:255',
+            'subtitle'    => 'nullable|string',
             'button_text' => 'nullable|string|max:100',
             'button_link' => 'nullable|string|max:255',
             'status'      => 'required|boolean',
-            'media'       => 'nullable|file|mimes:jpg,jpeg,png,webp,mp4|max:51200' // 50MB max
+            'media'       => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048'
         ]);
 
-        if ($request->status == 1) {
-            HeroSection::where('status', 1)
-                ->where('id', '!=', $hero_section->id)
-                ->update(['status' => 0]);
-        }
-
-        $hero_section->update($request->only([
-            'title',
-            'subtitle',
-            'button_text',
-            'button_link',
-            'status'
-        ]));
+        $hero_section->update([
+            'title'       => $request->title,
+            'subtitle'    => $request->subtitle,
+            'button_text' => $request->button_text,
+            'button_link' => $request->button_link,
+            'status'      => $request->status,
+        ]);
 
         if ($request->hasFile('media')) {
             $hero_section->clearMediaCollection('hero_media');
+
             $hero_section->addMediaFromRequest('media')
                          ->toMediaCollection('hero_media');
         }

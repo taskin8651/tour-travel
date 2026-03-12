@@ -17,7 +17,7 @@ class HomeController extends Controller
 {
    public function index()
 {
-    $hero = HeroSection::where('status', 1)->first();
+    $heroes = HeroSection::where('status', 1)->get();
     $categories = Category::where('status',1)->get();
 
     // Default first category listings
@@ -69,7 +69,7 @@ class HomeController extends Controller
 
 
     return view('custom.index', compact(
-        'hero',
+        'heroes',
         'categories',
         'listings',
         'packageCategory',
