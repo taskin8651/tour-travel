@@ -471,7 +471,7 @@ font-size:16px;
 </a>
 
 <div class="price-area">
-    if
+    if($listing->price)
 <h6>Per Person</h6>
 <span>₹{{ number_format($listing->price) }}</span>
 endif
