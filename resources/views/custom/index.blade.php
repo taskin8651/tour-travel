@@ -832,8 +832,8 @@ document.querySelectorAll('button[data-bs-toggle="pill"]').forEach(tab => {
         <div class="row justify-content-center mb-50">
             <div class="col-xl-6 col-lg-8">
                 <div class="section-title text-center">
-                    <h2>Last Minute Deals!</h2>
-                    <p>Explore our latest travel packages.</p>
+                    <h2>Our Services</h2>
+                    <p>Services we provide to you.</p>
                 </div>
             </div>
         </div>
