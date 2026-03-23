@@ -61,31 +61,65 @@ class ListingController extends Controller
         return view('admin.listings.edit', compact('listing','categories','subCategories'));
     }
 
-    public function update(Request $request, Listing $listing)
-    {
-        $request->validate([
-            'category_id' => 'required',
-            'title' => 'required',
-            'image' => 'nullable|image',
-            'gallery.*' => 'nullable|image'
-        ]);
+   public function update(Request $request, Listing $listing)
+{
+    $request->validate([
+        'category_id' => 'required',
+        'title' => 'required',
+        'image' => 'nullable|image',
+        'gallery.*' => 'nullable|image'
+    ]);
 
-        $listing->update($request->all());
+    // ✅ Safe update (avoid unwanted fields)
+    $listing->update([
+        'category_id' => $request->category_id,
+        'sub_category_id' => $request->sub_category_id,
+        'title' => $request->title,
+        'location' => $request->location,
+        'price' => $request->price,
+        'rooms' => $request->rooms,
+        'seats' => $request->seats,
+        'days' => $request->days,
+        'description' => $request->description,
+        'status' => $request->status,
+    ]);
 
-        if ($request->hasFile('image')) {
-            $listing->clearMediaCollection('main');
-            $listing->addMediaFromRequest('image')->toMediaCollection('main');
-        }
+    // =========================
+    // MAIN IMAGE UPDATE
+    // =========================
+    if ($request->hasFile('image')) {
+        $listing->clearMediaCollection('main');
+        $listing->addMediaFromRequest('image')
+                ->toMediaCollection('main');
+    }
 
-        if ($request->hasFile('gallery')) {
-            foreach ($request->file('gallery') as $image) {
-                $listing->addMedia($image)->toMediaCollection('gallery');
+    // =========================
+    // DELETE OLD GALLERY IMAGES
+    // =========================
+    if ($request->delete_images) {
+        $ids = explode(',', $request->delete_images);
+
+        foreach ($ids as $id) {
+            $media = \Spatie\MediaLibrary\MediaCollections\Models\Media::find($id);
+            if ($media && $media->model_id == $listing->id) {
+                $media->delete();
             }
         }
-
-        return redirect()->route('admin.listings.index')
-            ->with('success','Listing Updated Successfully');
     }
+
+    // =========================
+    // ADD NEW GALLERY IMAGES
+    // =========================
+    if ($request->hasFile('gallery')) {
+        foreach ($request->file('gallery') as $image) {
+            $listing->addMedia($image)
+                    ->toMediaCollection('gallery');
+        }
+    }
+
+    return redirect()->route('admin.listings.index')
+        ->with('success', 'Listing Updated Successfully');
+}
 
     public function destroy(Listing $listing)
     {
