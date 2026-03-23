@@ -36,6 +36,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('enquiries', App\Http\Controllers\Admin\EnquiryController::class);
     Route::resource('hero-sections',App\Http\Controllers\Admin\HeroSectionController::class);
     Route::resource('galleries',App\Http\Controllers\Admin\GalleryController::class);
+    Route::delete('galleries/media/{id}', [App\Http\Controllers\Admin\GalleryController::class, 'deleteMedia'])
+    ->name('galleries.media.delete');
     Route::resource('testimonials',App\Http\Controllers\Admin\TestimonialController::class);
     Route::get('settings', [App\Http\Controllers\Admin\SettingController::class,'index'])->name('settings.index');
 

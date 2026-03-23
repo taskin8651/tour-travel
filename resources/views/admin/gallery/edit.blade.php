@@ -49,7 +49,7 @@ class="w-full border border-gray-300 rounded-xl px-4 py-2
      class="w-full h-32 object-cover rounded-xl shadow">
 
 {{-- Delete Button --}}
-<form action="{{ route('admin.gallery.media.delete',$media->id) }}"
+<form action="{{ route('admin.gallery.media.delete', $media->id) }}"
       method="POST"
       class="absolute top-2 right-2 hidden group-hover:block">
 @csrf
