@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class GalleryController extends Controller
 {
@@ -74,4 +75,15 @@ class GalleryController extends Controller
 
         return back()->with('success','Gallery Deleted');
     }
+
+    public function deleteMedia($id)
+{
+    $media = Media::find($id);
+
+    if ($media) {
+        $media->delete();
+    }
+
+    return back()->with('success', 'Image deleted successfully');
+}
 }
