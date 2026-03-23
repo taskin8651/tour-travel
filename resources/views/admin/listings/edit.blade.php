@@ -127,25 +127,40 @@ class="w-full border border-gray-300 rounded-xl px-4 py-2">
 class="w-40 h-32 object-cover rounded-xl shadow">
 </div>
 </div>
-
 {{-- Gallery --}}
 <div class="col-span-12 md:col-span-6">
 <label class="block text-sm font-semibold text-gray-700 mb-3">
 Gallery Images
 </label>
 
+{{-- Old Images --}}
 @if($listing->getMedia('gallery')->count())
 <div class="grid grid-cols-3 gap-3 mb-4">
 @foreach($listing->getMedia('gallery') as $media)
-<img src="{{ $media->getUrl() }}"
-class="h-24 object-cover rounded-xl shadow">
+<div class="relative group">
+    <img src="{{ $media->getUrl() }}"
+         class="h-24 w-full object-cover rounded-xl shadow">
+
+    <button type="button"
+        data-id="{{ $media->id }}"
+        class="delete-old-image absolute top-1 right-1 
+               bg-red-500 text-white text-xs px-2 py-1 rounded 
+               opacity-0 group-hover:opacity-100 transition">
+        ✕
+    </button>
+</div>
 @endforeach
 </div>
 @endif
 
+{{-- Hidden input for delete --}}
+<input type="hidden" name="delete_images" id="deleteImages">
+
+{{-- Upload --}}
 <input type="file" name="gallery[]" id="galleryInput"
 multiple class="w-full border border-gray-300 rounded-xl px-4 py-2">
 
+{{-- Preview --}}
 <div id="galleryPreview"
 class="grid grid-cols-3 gap-4 mt-4"></div>
 </div>
@@ -177,12 +192,13 @@ Update Listing
 </div>
 @endsection
 
-
 @section('scripts')
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-    // Main image preview
+    // ======================
+    // MAIN IMAGE PREVIEW
+    // ======================
     const mainInput = document.getElementById('mainImageInput');
     const mainPreview = document.getElementById('mainPreview');
     const mainPreviewImg = document.getElementById('mainPreviewImg');
@@ -201,50 +217,87 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Gallery preview
+    // ======================
+    // OLD IMAGE DELETE
+    // ======================
+    let deleteImages = [];
+
+    document.querySelectorAll('.delete-old-image').forEach(btn => {
+        btn.addEventListener('click', function(){
+            const id = this.dataset.id;
+
+            deleteImages.push(id);
+            document.getElementById('deleteImages').value = deleteImages.join(',');
+
+            this.parentElement.remove();
+        });
+    });
+
+    // ======================
+    // GALLERY IMAGE PREVIEW + REMOVE (REAL FIX)
+    // ======================
     const galleryInput = document.getElementById('galleryInput');
     const galleryPreview = document.getElementById('galleryPreview');
 
+    let filesArray = [];
+
     if(galleryInput){
         galleryInput.addEventListener('change', function(e){
-            galleryPreview.innerHTML = '';
+            filesArray = Array.from(e.target.files);
+            renderGallery();
+        });
+    }
 
-            Array.from(e.target.files).forEach((file, index) => {
-                const reader = new FileReader();
+    function renderGallery(){
+        galleryPreview.innerHTML = '';
 
-                reader.onload = function(event){
-                    const wrapper = document.createElement('div');
-                    wrapper.classList.add('relative');
+        filesArray.forEach((file, index) => {
+            const reader = new FileReader();
 
-                    const img = document.createElement('img');
-                    img.src = event.target.result;
-                    img.classList.add(
-                        'w-full','h-24','object-cover',
-                        'rounded-xl','shadow'
-                    );
+            reader.onload = function(event){
+                const wrapper = document.createElement('div');
+                wrapper.classList.add('relative');
 
-                    const removeBtn = document.createElement('button');
-                    removeBtn.innerHTML = '✕';
-                    removeBtn.type = "button";
-                    removeBtn.classList.add(
-                        'absolute','top-1','right-1',
-                        'bg-red-500','text-white',
-                        'text-xs','px-2','py-1',
-                        'rounded'
-                    );
+                const img = document.createElement('img');
+                img.src = event.target.result;
+                img.classList.add(
+                    'w-full','h-24','object-cover',
+                    'rounded-xl','shadow'
+                );
 
-                    removeBtn.onclick = function(){
-                        wrapper.remove();
-                    };
+                const removeBtn = document.createElement('button');
+                removeBtn.innerHTML = '✕';
+                removeBtn.type = "button";
+                removeBtn.classList.add(
+                    'absolute','top-1','right-1',
+                    'bg-red-500','text-white',
+                    'text-xs','px-2','py-1',
+                    'rounded'
+                );
 
-                    wrapper.appendChild(img);
-                    wrapper.appendChild(removeBtn);
-                    galleryPreview.appendChild(wrapper);
+                removeBtn.onclick = function(){
+                    filesArray.splice(index, 1);
+                    updateInputFiles();
+                    renderGallery();
                 };
 
-                reader.readAsDataURL(file);
-            });
+                wrapper.appendChild(img);
+                wrapper.appendChild(removeBtn);
+                galleryPreview.appendChild(wrapper);
+            };
+
+            reader.readAsDataURL(file);
         });
+    }
+
+    function updateInputFiles(){
+        const dataTransfer = new DataTransfer();
+
+        filesArray.forEach(file => {
+            dataTransfer.items.add(file);
+        });
+
+        galleryInput.files = dataTransfer.files;
     }
 
 });

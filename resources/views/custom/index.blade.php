@@ -340,7 +340,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <h2>Who We Are, What We Do</h2>
 
                     <p>
-                        Located in Gangtok, Sikkim, Immanuel Tours & Travels specializes in crafting unforgettable travel experiences across the stunning landscapes of Sikkim and Northeast India. Our personalized tour packages cater to adventurers, culture enthusiasts, and nature lovers alike, ensuring each trip is unique and tailored to you.
+                        Located in Gangtok, Sikkim, Immanuel Dream Destinations Sikkim specializes in crafting unforgettable travel experiences across the stunning landscapes of Sikkim and Northeast India. Our personalized tour packages cater to adventurers, culture enthusiasts, and nature lovers alike, ensuring each trip is unique and tailored to you.
                     </p>
 
                     <p>
@@ -637,10 +637,7 @@ slidesPerView:3
                     <img src="{{ $listing->getFirstMediaUrl('main') ?: asset('assets/img/default.jpg') }}"
                          alt="{{ $listing->title }}">
 
-                    <div class="price">
-                        <h6>₹{{ number_format($listing->price) }}</h6>
-                        <span>/per night</span>
-                    </div>
+                    
 
                     <ul class="room-details">
 
