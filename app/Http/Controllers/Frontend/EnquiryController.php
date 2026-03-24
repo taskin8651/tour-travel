@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Enquiry;
 use App\Models\Listing;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class EnquiryController extends Controller
 {
@@ -22,7 +23,7 @@ class EnquiryController extends Controller
     return view('custom.enquiry', compact('category', 'listings'));
 }
 
-   public function store(Request $request)
+  public function store(Request $request)
 {
     $request->validate([
         'category_id' => 'required|exists:categories,id',
@@ -34,33 +35,37 @@ class EnquiryController extends Controller
 
     $listing = Listing::findOrFail($request->listing_id);
 
-    // Extra safety: ensure listing belongs to selected category
     if ($listing->category_id != $request->category_id) {
         return back()->withErrors('Invalid listing selection.');
     }
 
-    Enquiry::create([
+    // Save enquiry
+    $enquiry = Enquiry::create([
         'category_id'        => $request->category_id,
         'listing_id'         => $request->listing_id,
         'name'               => $request->name,
         'email'              => $request->email,
         'phone'              => $request->phone,
-
-        // Travel
         'travel_date'        => $request->travel_date,
         'persons'            => $request->persons,
-
-        // Room
         'checkin_date'       => $request->checkin_date,
         'checkout_date'      => $request->checkout_date,
         'rooms'              => $request->rooms,
-
-        // Sikkim
         'package_requirements' => $request->package_requirements,
-
         'message'            => $request->message,
         'status'             => Enquiry::STATUS_PENDING,
     ]);
+
+    try {
+
+        Mail::send('emails.enquiry', ['enquiry' => $enquiry], function ($message) {
+            $message->to('anmolpradhanpradhan90326@gmail.com')
+                    ->subject('📩 New Enquiry Received');
+        });
+
+    } catch (\Exception $e) {
+        return back()->with('error', 'Enquiry saved but mail failed!');
+    }
 
     return back()->with('success', 'Enquiry Sent Successfully');
 }
