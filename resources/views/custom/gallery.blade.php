@@ -29,18 +29,19 @@
 
                     <div class="guide-img-wrap">
 
-                        <!-- IMAGE -->
-                        <a href="{{ route('gallery.detail', $gallery->id) }}" class="guide-img">
+                        <!-- IMAGE (NO LINK) -->
+                        <div class="guide-img">
                             <img 
                                 src="{{ $gallery->getFirstMediaUrl('gallery') ?: asset('assets/img/default.jpg') }}" 
                                 alt="{{ $gallery->title }}">
-                        </a>
+                        </div>
 
-                        <!-- ICON -->
+                        <!-- ICON (OPTIONAL - NO LINK) -->
                         <ul class="social-list">
                             <li>
-                                
+                                <span>
                                     <i class="bx bx-search"></i>
+                                </span>
                             </li>
                         </ul>
 
@@ -48,10 +49,7 @@
 
                     <!-- CONTENT -->
                     <div class="guide-info text-center">
-                        <h5>
-                            
-                         {{ $gallery->title }}
-                        </h5>
+                        <h5>{{ $gallery->title }}</h5>
                         <span>Gallery</span>
                     </div>
 
@@ -76,10 +74,10 @@
 <!-- Gallery Page End -->
 
 
-<!-- 🔥 CUSTOM CSS -->
+<!-- CSS -->
 <style>
 
-/* Square Image Fix */
+/* Square Image */
 .tour-guide-card .guide-img img {
     border-radius: 0 !important;
     width: 100%;
@@ -95,20 +93,19 @@
     position: relative;
 }
 
-/* Hover Zoom */
+/* Hover */
 .tour-guide-card:hover .guide-img img {
     transform: scale(1.05);
 }
 
-/* Icon Position */
+/* Icon */
 .tour-guide-card .social-list {
     position: absolute;
     top: 10px;
     right: 10px;
 }
 
-/* Icon Style */
-.tour-guide-card .social-list li a {
+.tour-guide-card .social-list li span {
     background: rgba(0,0,0,0.7);
     color: #fff;
     width: 35px;
@@ -125,7 +122,7 @@
     font-size: 16px;
 }
 
-/* Pagination Fix */
+/* Pagination */
 .pagination {
     display: flex;
     padding-left: 0;
