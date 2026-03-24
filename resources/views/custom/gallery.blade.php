@@ -18,57 +18,60 @@
 
 
 <!-- Gallery Page Start -->
+
+
 <div class="guider-page pt-100 mb-100">
     <div class="container">
         <div class="row gy-md-5 gy-4">
 
             @forelse($galleries as $gallery)
-            <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp">
+                @foreach($gallery->getMedia('gallery') as $image)
 
-                <div class="tour-guide-card two">
+                <div class="col-lg-3 col-md-4 col-sm-6 wow animate fadeInDown">
 
-                    <div class="guide-img-wrap">
+                    <div class="tour-guide-card two">
 
-                        <!-- IMAGE (NO LINK) -->
-                        <div class="guide-img">
-                            <img 
-                                src="{{ $gallery->getFirstMediaUrl('gallery') ?: asset('assets/img/default.jpg') }}" 
-                                alt="{{ $gallery->title }}">
+                        <div class="guide-img-wrap">
+
+                            <!-- IMAGE -->
+                            <a href="{{ $image->getUrl() }}" data-fancybox="gallery" class="guide-img">
+                                <img src="{{ $image->getUrl() }}" alt="{{ $gallery->title }}">
+                            </a>
+
+                            <!-- SOCIAL / ICON -->
+                            <ul class="social-list">
+                                <li>
+                                    <a href="{{ $image->getUrl() }}" data-fancybox="gallery">
+                                        <i class="bx bx-search"></i>
+                                    </a>
+                                </li>
+                            </ul>
+
                         </div>
 
-                        <!-- ICON (OPTIONAL - NO LINK) -->
-                        <ul class="social-list">
-                            <li>
-                                <span>
-                                    <i class="bx bx-search"></i>
-                                </span>
-                            </li>
-                        </ul>
+                        <!-- TITLE -->
+                        <div class="guide-info text-center">
+                            <h5>{{ $gallery->title }}</h5>
+                            <span>Gallery Image</span>
+                        </div>
 
-                    </div>
-
-                    <!-- CONTENT -->
-                    <div class="guide-info text-center">
-                        <h5>{{ $gallery->title }}</h5>
-                        <span>Gallery</span>
                     </div>
 
                 </div>
 
-            </div>
+                @endforeach
             @empty
-            <div class="col-12 text-center">
-                <p>No gallery found.</p>
-            </div>
+                <div class="col-12 text-center">
+                    <p>No gallery images available.</p>
+                </div>
             @endforelse
 
         </div>
 
-        <!-- Pagination -->
+         <!-- Pagination -->
         <div class="mt-5 d-flex justify-content-center">
             {{ $galleries->links('pagination::bootstrap-5') }}
         </div>
-
     </div>
 </div>
 <!-- Gallery Page End -->
