@@ -228,7 +228,9 @@
                         </div>
                         <div class="content">
                             <span>Mail Us</span>
-                            <a href="mailto:{{ $setting->email }}">{{ $setting->email }}</a>
+                            <a href="https://mail.google.com/mail/?view=cm&to={{ $setting->email }}" target="_blank">
+    {{ $setting->email }}
+</a>
                         </div>
                     </li>
                     <li class="single-contact">
