@@ -708,62 +708,51 @@ slidesPerView:3
     <!-- Home10 Hotel And Room Section End -->
 
     <!-- Home3 Gallery Section Start -->
-<div class="home3-destination-section mb-100">
+<div class="guider-page pt-100 mb-100">
     <div class="container">
+        <div class="row gy-md-5 gy-4">
 
-        <div class="row justify-content-center mb-50">
-            <div class="col-lg-8">
-                <div class="section-title text-center">
-                    <span>Our Travel Moments</span>
-                    <h2>Explore Our Gallery</h2>
-                    <p>A collection of beautiful travel memories captured during our amazing journeys.</p>
-                </div>
-            </div>
-        </div>
+            @forelse($galleryImages as $gallery)
+                @foreach($gallery->getMedia('gallery') as $image)
 
-        <div class="destination-slider-area">
-            <div class="swiper home3-destination-slider">
-                <div class="swiper-wrapper">
+                <div class="col-lg-3 col-md-4 col-sm-6 wow animate fadeInDown">
 
-                    @forelse($galleryImages as $gallery)
-                        @foreach($gallery->getMedia('gallery') as $image)
-                            <div class="swiper-slide">
-                                <div class="destination-card2 two">
-                                    <div class="destination-img">
-                                        <img src="{{ $image->getUrl() }}" alt="{{ $gallery->title }}">
+                    <div class="tour-guide-card two">
 
-                                        <!-- Optional Fancybox Preview -->
-                                        <a data-fancybox="gallery" 
-                                           href="{{ $image->getUrl() }}" 
-                                           class="arrow">
-                                            <svg width="14" height="14" viewBox="0 0 14 14">
-                                                <path d="M1 13C5.9 8 13 1 13 1" stroke-width="1.5" stroke-linecap="round"/>
-                                            </svg>
-                                        </a>
-                                    </div>
+                        <div class="guide-img-wrap">
 
-                                    <div class="destination-content text-center">
-                                        <h5>{{ $gallery->title }}</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    @empty
-                        <div class="swiper-slide">
-                            <div class="text-center">
-                                <p>No gallery images available.</p>
-                            </div>
+                            <!-- IMAGE -->
+                            <a href="{{ $image->getUrl() }}" data-fancybox="gallery" class="guide-img">
+                                <img src="{{ $image->getUrl() }}" alt="{{ $gallery->title }}">
+                            </a>
+
+                            <!-- SOCIAL / ICON -->
+                            <ul class="social-list">
+                                <li>
+                                    <a href="{{ $image->getUrl() }}" data-fancybox="gallery">
+                                        <i class="bx bx-search"></i>
+                                    </a>
+                                </li>
+                            </ul>
+
                         </div>
-                    @endforelse
+
+                        <!-- TITLE -->
+                        <div class="guide-info text-center">
+                            <h5>{{ $gallery->title }}</h5>
+                            <span>Gallery Image</span>
+                        </div>
+
+                    </div>
 
                 </div>
-            </div>
 
-            <!-- Slider Buttons -->
-            <div class="slider-btn-grp two">
-                <div class="slider-btn destination-slider-prev">‹</div>
-                <div class="slider-btn destination-slider-next">›</div>
-            </div>
+                @endforeach
+            @empty
+                <div class="col-12 text-center">
+                    <p>No gallery images available.</p>
+                </div>
+            @endforelse
 
         </div>
     </div>
