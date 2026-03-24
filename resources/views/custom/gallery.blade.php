@@ -39,9 +39,8 @@
                         <!-- ICON -->
                         <ul class="social-list">
                             <li>
-                                <a href="{{ route('gallery.detail', $gallery->id) }}">
+                                
                                     <i class="bx bx-search"></i>
-                                </a>
                             </li>
                         </ul>
 
