@@ -51,7 +51,7 @@
                     <div class="guide-info text-center">
                         <h5>
                             
-                                {{ $gallery->title }}
+                         {{ $gallery->title }}
                         </h5>
                         <span>Gallery</span>
                     </div>
