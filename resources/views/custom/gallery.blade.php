@@ -50,9 +50,8 @@
                     <!-- CONTENT -->
                     <div class="guide-info text-center">
                         <h5>
-                            <a href="{{ route('gallery.detail', $gallery->id) }}">
+                            
                                 {{ $gallery->title }}
-                            </a>
                         </h5>
                         <span>Gallery</span>
                     </div>
