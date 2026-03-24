@@ -757,6 +757,53 @@ slidesPerView:3
         </div>
     </div>
 </div>
+
+<style>
+    /* 🔥 Remove Circle */
+.tour-guide-card .guide-img img {
+    border-radius: 0 !important; /* circle hata diya */
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+/* Wrapper */
+.tour-guide-card .guide-img-wrap {
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Hover Effect */
+.tour-guide-card:hover .guide-img img {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+/* Icon Style */
+.tour-guide-card .social-list {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.tour-guide-card .social-list li a {
+    background: #000;
+    color: #fff;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+/* Title */
+.guide-info h5 {
+    margin-top: 10px;
+    font-size: 16px;
+}
+</style>
 <!-- Home3 Gallery Section End -->
 
     <!-- home1 offer banner Section Start-->
