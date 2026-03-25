@@ -149,19 +149,7 @@
                     <div class="package-details-sidebar">
                        <div class="pricing-and-booking-area">
                             
-                            <div class="price-area">
-    <h6>Starting From</h6>
-    <span>
-        ₹{{ number_format($listing->price) }}
-        <sub>
-            @if($listing->category->slug == 'room-booking')
-                /per night
-            @else
-                /per person
-            @endif
-        </sub>
-    </span>
-</div>
+                          
                             <ul>
                                 <li>
                                     <svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">

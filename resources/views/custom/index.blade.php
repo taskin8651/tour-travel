@@ -340,7 +340,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <h2>Who We Are, What We Do</h2>
 
                     <p>
-                        Located in Silk Route is Sikkim , Dream Destinations Tour & Travels specializes in crafting unforgettable travel experiences across the stunning landscapes of Sikkim . Our personalized tour packages cater to adventurers, culture enthusiasts, and nature lovers alike, ensuring each trip is unique and tailored to you.
+                        Located in Silk Route is East Sikkim , Dream Destinations Tour & Travels specializes in crafting unforgettable travel experiences across the stunning landscapes of Sikkim . Our personalized tour packages cater to adventurers, culture enthusiasts, and nature lovers alike, ensuring each trip is unique and tailored to you.
                     </p>
 
                     <p>
@@ -470,12 +470,7 @@ font-size:16px;
 <span>Book Now</span>
 </a>
 
-<div class="price-area">
-    @if($listing->price)
-<h6>Per Person</h6>
-<span>₹{{ number_format($listing->price) }}</span>
-@endif
-</div>
+
 
 </div>
 

@@ -158,17 +158,7 @@
                     <span>Book Now</span>
                 </a>
 
-                <div class="price-area">
-                    <h6>
-                        @if($category->slug == 'room-booking')
-                            Per Night
-                        @else
-                            Per Person
-                        @endif
-                    </h6>
-
-                    <span>₹{{ number_format($listing->price) }}</span>
-                </div>
+               
             </div>
 
         </div>

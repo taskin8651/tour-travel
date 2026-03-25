@@ -168,6 +168,7 @@
         <img src="{{ asset('assets/img/innerpages/vector/contact-page-vector2.svg') }}" alt="" class="vector2">
         <img src="{{ asset('assets/img/innerpages/vector/contact-page-vector3.svg') }}" alt="" class="vector3">
     </div>
+</div>
     <!--Contact Page End-->
 
     
