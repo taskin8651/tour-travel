@@ -17,7 +17,9 @@ class HomeController extends Controller
 {
    public function index()
 {
-    $heroes = HeroSection::where('status', 1)->get();
+    $heroes = HeroSection::where('status', 1)
+            ->orderBy('id', 'desc')
+            ->get();
     $categories = Category::where('status',1)->get();
 
     // Default first category listings
