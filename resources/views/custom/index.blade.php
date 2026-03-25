@@ -22,7 +22,7 @@
                         <div class="banner-content-wrap">
                             <div class="container">
                                 <div class="banner-content">
-                                    <h2>{{ $hero->title }}</h2>
+                                    <h2 class="fs-1">{{ $hero->title }}</h2>
                                     <p>{{ $hero->subtitle }}</p>
                                 </div>
                             </div>
