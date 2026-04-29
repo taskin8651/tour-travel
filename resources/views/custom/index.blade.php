@@ -838,7 +838,7 @@ slidesPerView:3
         <div class="row justify-content-center mb-50">
             <div class="col-xl-6 col-lg-8">
                 <div class="section-title text-center">
-                    <h2>Our Services ss</h2>
+                    <h2>Our Services</h2>
                     <p>Services we provide to you.</p>
                 </div>
             </div>
