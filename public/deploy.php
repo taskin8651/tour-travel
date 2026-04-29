@@ -5,7 +5,7 @@ $signature = $_SERVER['HTTP_X_HUB_SIGNATURE'] ?? '';
 $secret = 'mysecret'; // optional
 
 // Go to your project folder
-$projectRoot = '/home/smartuni/public_html/dreamdestinationsikkim.in';
+$projectRoot = '/home/smartuni/public_html/pradhanstourstravel.in';
 
 chdir($projectRoot);
 
